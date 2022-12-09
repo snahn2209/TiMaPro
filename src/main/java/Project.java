@@ -8,7 +8,6 @@ public class Project {
     public Project(String name) {
         this.name = name;
     }
-
     /**
      * getter for project name
      * @return name
