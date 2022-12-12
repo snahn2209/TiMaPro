@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 public class SQLQuery {
     //TODO: separate this Class into 3 dataProvider-Classes for User,Project,Task
@@ -11,12 +12,18 @@ public class SQLQuery {
      * @param name name of inserted user as String
      * @return inserted UserAccount
      */
-    public static UserAccount insertUser(Connection con, String name) {
+    public static UserAccount insertUser(Connection con, String name) throws SQLIntegrityConstraintViolationException {
         int totalPoints = 0; //new users don't have points yet
 
         if(con!=null){
-            DBConnection.insert(con, "INSERT INTO useraccount(name,totalpoints) VALUES('"+ name +"',"+ totalPoints +")");
-            return SQLQuery.selectUser(con, name);
+            try {
+                DBConnection.insert(con, "INSERT INTO useraccount(name,totalpoints) VALUES('"+ name +"',"+ totalPoints +")");
+                return SQLQuery.selectUser(con, name);
+            } catch (SQLIntegrityConstraintViolationException e) {
+                //thrown when user already exists
+                throw e;
+            }
+            //return null;
         }
 
         return null;

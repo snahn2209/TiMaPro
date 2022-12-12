@@ -52,15 +52,14 @@ public class DBConnection {
      * @param con Connection
      * @param qry Query String
      */
-    public static void insert(Connection con, String qry) {
+    public static void insert(Connection con, String qry) throws SQLIntegrityConstraintViolationException {
         try {
             PreparedStatement stmt = con.prepareStatement(qry);
             stmt.execute();
             System.out.println("[INSERT executed]");
 
         } catch(SQLIntegrityConstraintViolationException e){
-            // user witch this name already exists
-            //TODO: throw this exception and test it
+            throw e;
         } catch (SQLException e) {
             e.printStackTrace();
         }

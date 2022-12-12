@@ -1,7 +1,8 @@
 import java.sql.Connection;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLIntegrityConstraintViolationException {
         /*
         SQLQuery.insertUser("Pia");
 
