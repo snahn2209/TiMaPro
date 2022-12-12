@@ -1,16 +1,14 @@
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.*;
 
-public class SQLQuery {
-    //TODO: separate this Class into 3 dataProvider-Classes for User,Project,Task
+public class UserDataProvider {
+
 
     /**
      * adds new user to database
      * @param con Connection to database
      * @param name name of inserted user as String
      * @return inserted UserAccount
+     * @throws SQLIntegrityConstraintViolationException when user already exists
      */
     public static UserAccount insertUser(Connection con, String name) throws SQLIntegrityConstraintViolationException {
         int totalPoints = 0; //new users don't have points yet
@@ -18,7 +16,7 @@ public class SQLQuery {
         if(con!=null){
             try {
                 DBConnection.insert(con, "INSERT INTO useraccount(name,totalpoints) VALUES('"+ name +"',"+ totalPoints +")");
-                return SQLQuery.selectUser(con, name);
+                return UserDataProvider.selectUser(con, name);
             } catch (SQLIntegrityConstraintViolationException e) {
                 //thrown when user already exists
                 throw e;
@@ -56,4 +54,9 @@ public class SQLQuery {
 
         return null;
     }
+
+    //TODO: select for multiple users
+    //TODO: delete user
+    //TODO: update totalpoints
+
 }

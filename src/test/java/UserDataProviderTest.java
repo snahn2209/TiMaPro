@@ -4,14 +4,16 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SQLQueryTest {
+class UserDataProviderTest {
+
+    //NOTE: test have to be run separately
 
     @Test
     void insertUserThatDoesntExist() {
         //NOTE: look for a name that isnt already in the db before running this test
         Connection con = DBConnection.getConnection();
         assertAll(
-            () -> assertEquals("Ralf",SQLQuery.insertUser(con, "Ralf").getName())
+            () -> assertEquals("Tom", UserDataProvider.insertUser(con, "Tom").getName())
         );
         DBConnection.disconnect(con);
         //TODO: remove name after test
@@ -19,9 +21,8 @@ class SQLQueryTest {
 
     @Test
     void insertUserThatDoesAlreadyExist(){
-        //TODO: should return a SQLIntegrityConstraintViolationException
         Connection con = DBConnection.getConnection();
-        assertThrows(SQLIntegrityConstraintViolationException.class,() -> SQLQuery.insertUser(con, "Otto"));
+        assertThrows(SQLIntegrityConstraintViolationException.class,() -> UserDataProvider.insertUser(con, "Pia"));
         DBConnection.disconnect(con);
     }
 
@@ -29,7 +30,7 @@ class SQLQueryTest {
     void selectUserThatExists() {
         Connection con = DBConnection.getConnection();
         assertAll(
-                () -> assertEquals("Pia", SQLQuery.selectUser(con, "Pia").getName())
+                () -> assertEquals("Pia", UserDataProvider.selectUser(con, "Pia").getName())
         );
         DBConnection.disconnect(con);
     }
@@ -38,7 +39,7 @@ class SQLQueryTest {
     void selectUserThatDoesntExists() {
         Connection con = DBConnection.getConnection();
         assertAll(
-                () -> assertNull(SQLQuery.selectUser(con, "123"))
+                () -> assertNull(UserDataProvider.selectUser(con, "123"))
         );
         DBConnection.disconnect(con);
     }
