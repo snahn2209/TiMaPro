@@ -1,4 +1,7 @@
 import org.junit.jupiter.api.Test;
+
+import java.sql.Connection;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SQLQueryTest {
@@ -7,9 +10,8 @@ class SQLQueryTest {
     void insertUserThatDoesntExist() {
         //TODO: should insert user
         assertAll(
-            () -> assertEquals("Lisa",SQLQuery.insertUser("Lisa").getName())
+            () -> assertEquals("Otto",SQLQuery.insertUser(DBConnection.getConnection(), "Otto").getName())
         );
-
     }
 
     @Test
@@ -18,12 +20,22 @@ class SQLQueryTest {
     }
 
     @Test
-    void selectUser() {
+    void selectUserThatExists() {
+        Connection con = DBConnection.getConnection();
         assertAll(
                 //user that exists
-                () -> assertEquals("Pia", SQLQuery.selectUser("Pia").getName()),
-                //user that doesn't exist
-                () -> assertNull(SQLQuery.selectUser("123"))
+                () -> assertEquals("Pia", SQLQuery.selectUser(con, "Pia").getName())
         );
+        DBConnection.disconnect(con);
+    }
+
+    @Test
+    void selectUserThatDoesntExists() {
+        Connection con = DBConnection.getConnection();
+        assertAll(
+                //user that doesn't exist
+                () -> assertNull(SQLQuery.selectUser(con, "123"))
+        );
+        DBConnection.disconnect(con);
     }
 }

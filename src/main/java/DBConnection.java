@@ -15,9 +15,9 @@ public class DBConnection {
 
     /**
      * establishes connection to MySQL database
+     * @return Connection
      */
     public static Connection getConnection(){
-        //TODO: return connection + connection as parameter for other methods
         if(!isConnected()){
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
@@ -33,7 +33,8 @@ public class DBConnection {
     }
 
     /**
-     * releases  connection to Database
+     * breaks connectin to database
+     * @param con
      */
     public static void disconnect(Connection con){
         if(isConnected()){
@@ -48,28 +49,27 @@ public class DBConnection {
 
     /**
      * sends INSERT query to database
-     * @param qry query String
+     * @param con Connection
+     * @param qry Query String
      */
-    public static ResultSet insert(Connection con, String qry) {
+    public static void insert(Connection con, String qry) {
         try {
-            ResultSet rs = null;
             PreparedStatement stmt = con.prepareStatement(qry);
-            boolean returnType = stmt.execute();
-            if(returnType) {  rs = stmt.getResultSet();}
+            stmt.execute();
             System.out.println("[INSERT executed]");
-            return rs;
+
         } catch(SQLIntegrityConstraintViolationException e){
             // user witch this name already exists
             //TODO: throw this exception and test it
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
     }
 
     /**
      * sends SELECT query to database and returns result
      * @param qry query String
+     * @param con Connection
      * @return Selected Rows as a ResultSet
      */
     public static ResultSet select(Connection con,String qry){
