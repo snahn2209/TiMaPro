@@ -16,23 +16,26 @@ public class DBConnection {
     /**
      * establishes connection to MySQL database
      */
-    public static void connect(){
+    public static Connection getConnection(){
+        //TODO: return connection + connection as parameter for other methods
         if(!isConnected()){
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-
                 con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database, username,password);
                 System.out.println("[DB connected]");
-            } catch (ClassNotFoundException | SQLException e) {
+                return con;
+            }catch (ClassNotFoundException | SQLException e) {
                 e.printStackTrace();
             }
+
         }
+        return null;
     }
 
     /**
      * releases  connection to Database
      */
-    public static void disconnect(){
+    public static void disconnect(Connection con){
         if(isConnected()){
             try {
                 con.close();
@@ -47,14 +50,21 @@ public class DBConnection {
      * sends INSERT query to database
      * @param qry query String
      */
-    public static void insert(String qry){
+    public static ResultSet insert(Connection con, String qry) {
         try {
+            ResultSet rs = null;
             PreparedStatement stmt = con.prepareStatement(qry);
-            stmt.execute();
+            boolean returnType = stmt.execute();
+            if(returnType) {  rs = stmt.getResultSet();}
             System.out.println("[INSERT executed]");
+            return rs;
+        } catch(SQLIntegrityConstraintViolationException e){
+            // user witch this name already exists
+            //TODO: throw this exception and test it
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     /**
@@ -62,7 +72,7 @@ public class DBConnection {
      * @param qry query String
      * @return Selected Rows as a ResultSet
      */
-    public static ResultSet select(String qry){
+    public static ResultSet select(Connection con,String qry){
         try {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(qry);
@@ -73,4 +83,7 @@ public class DBConnection {
         }
         return null;
     }
+
+    //TODO: update()
+    //TODO: delete()
 }

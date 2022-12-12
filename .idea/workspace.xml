@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d9ad9c8-9224-4636-a973-908799fc768d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DBConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SQLQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UserAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/SQLQueryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQLRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Project.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQLQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQLQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SQLQueryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SQLQueryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,8 +116,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.SQLQueryTest" />
         <item itemvalue="JUnit.SQLQueryTest.insertUserThatDoesntExist" />
+        <item itemvalue="JUnit.SQLQueryTest" />
         <item itemvalue="JUnit.SQLQueryTest.insertUserThatDoesAlreadyExist" />
         <item itemvalue="JUnit.SQLQueryTest.insertUser" />
       </list>
@@ -141,7 +137,8 @@
       <workItem from="1670410132755" duration="1678000" />
       <workItem from="1670411908174" duration="1330000" />
       <workItem from="1670585827139" duration="735000" />
-      <workItem from="1670614500668" duration="21917000" />
+      <workItem from="1670614500668" duration="22027000" />
+      <workItem from="1670797352680" duration="6463000" />
     </task>
     <servers />
   </component>

@@ -6,6 +6,10 @@ class SQLQueryTest {
     @Test
     void insertUserThatDoesntExist() {
         //TODO: should insert user
+        assertAll(
+            () -> assertEquals("Lisa",SQLQuery.insertUser("Lisa").getName())
+        );
+
     }
 
     @Test
