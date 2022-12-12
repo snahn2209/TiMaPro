@@ -13,5 +13,11 @@ class TaskDataProviderTest {
         );
         DBConnection.disconnect(con);
     }
+    @Test
+    void selectTaskThatDoesntExist() {
+        Connection con = DBConnection.getConnection();
+        assertNull(TaskDataProvider.selectTask(con, 10000));
+        DBConnection.disconnect(con);
+    }
 
 }
