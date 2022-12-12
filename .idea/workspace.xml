@@ -5,18 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d9ad9c8-9224-4636-a973-908799fc768d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ProjectDataProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Task.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TaskDataProviderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQLQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserDataProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ProjectTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/SQLQueryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserDataProviderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserDataProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SQLQuery.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/SQLQueryTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Project.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TaskDataProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TaskDataProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/UserDataProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserDataProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ProjectTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/UserDataProviderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/UserDataProviderTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -73,11 +73,18 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserDataProviderTest.selectUserThatDoesntExists">
-    <configuration name="UserDataProviderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TaskDataProviderTest">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ProjectPoints" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TaskDataProviderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProjectPoints" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="MAIN_CLASS_NAME" value="TaskDataProviderTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -88,16 +95,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
       <option name="METHOD_NAME" value="insertUserThatDoesAlreadyExist" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserDataProviderTest.insertUserThatDoesntExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProjectPoints" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
-      <option name="METHOD_NAME" value="insertUserThatDoesntExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -125,11 +122,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TaskDataProviderTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UserDataProviderTest.selectUserThatDoesntExists" />
         <item itemvalue="JUnit.UserDataProviderTest.selectUserThatExists" />
         <item itemvalue="JUnit.UserDataProviderTest.insertUserThatDoesAlreadyExist" />
-        <item itemvalue="JUnit.UserDataProviderTest.insertUserThatDoesntExist" />
-        <item itemvalue="JUnit.UserDataProviderTest" />
       </list>
     </recent_temporary>
   </component>

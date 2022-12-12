@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class UserDataProvider {
+public class    UserDataProvider {
 
 
     /**
