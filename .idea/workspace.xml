@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d9ad9c8-9224-4636-a973-908799fc768d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ProjectDataProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQLQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ProjectTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SQLQueryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserDataProviderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SQLQuery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/SQLQueryTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -43,12 +53,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
@@ -56,19 +73,63 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="ProjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UserDataProviderTest.selectUserThatDoesntExists">
+    <configuration name="UserDataProviderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProjectPoints" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ProjectTest" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserDataProviderTest.insertUserThatDoesAlreadyExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="METHOD_NAME" value="insertUserThatDoesAlreadyExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserDataProviderTest.insertUserThatDoesntExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="METHOD_NAME" value="insertUserThatDoesntExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserDataProviderTest.selectUserThatDoesntExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="METHOD_NAME" value="selectUserThatDoesntExists" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserDataProviderTest.selectUserThatExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="METHOD_NAME" value="selectUserThatExists" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProjectTest" />
+        <item itemvalue="JUnit.UserDataProviderTest.selectUserThatDoesntExists" />
+        <item itemvalue="JUnit.UserDataProviderTest.selectUserThatExists" />
+        <item itemvalue="JUnit.UserDataProviderTest.insertUserThatDoesAlreadyExist" />
+        <item itemvalue="JUnit.UserDataProviderTest.insertUserThatDoesntExist" />
+        <item itemvalue="JUnit.UserDataProviderTest" />
       </list>
     </recent_temporary>
   </component>
@@ -84,7 +145,10 @@
       <workItem from="1670407748478" duration="1016000" />
       <workItem from="1670408999966" duration="782000" />
       <workItem from="1670410132755" duration="1678000" />
-      <workItem from="1670411908174" duration="1195000" />
+      <workItem from="1670411908174" duration="1330000" />
+      <workItem from="1670585827139" duration="735000" />
+      <workItem from="1670614500668" duration="22027000" />
+      <workItem from="1670797352680" duration="13176000" />
     </task>
     <servers />
   </component>

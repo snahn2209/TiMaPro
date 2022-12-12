@@ -1,15 +1,12 @@
-import java.util.Date;
-
-public class Project {
-
+public class UserAccount {
     private int ID;
     private String name;
-    private Date deadline;
+    private int totalPoints;
 
-    public Project(int ID, String name, Date deadline) {
+    public UserAccount(int ID, String name, int totalPoints) {
         this.ID = ID;
         this.name = name;
-        this.deadline = deadline;
+        this.totalPoints = totalPoints;
     }
 
     public int getID() {
@@ -28,16 +25,16 @@ public class Project {
         this.name = name;
     }
 
-    public Date getDeadline() {
-        return deadline;
+    public int getTotalPoints() {
+        return totalPoints;
     }
 
-    public void setDeadline(Date deadline) {
-        this.deadline = deadline;
+    public void setTotalPoints(int totalPoints) {
+        this.totalPoints = totalPoints;
     }
 
     @Override
     public String toString(){
-        return "ProjectID: "+ ID +" | Name: "+ name + " | deadline: "+ deadline;
+        return "UserID: "+ ID +" | UserName: "+ name + " | totalPoints: "+ totalPoints;
     }
 }
