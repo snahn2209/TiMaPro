@@ -16,11 +16,11 @@ public class Main {
 
         DBConnection.disconnect(con);*/
 
-        Connection con = DBConnection.getConnection();
+        /*Connection con = DBConnection.getConnection();
 
         Task task= TaskDataProvider.selectTask(con, 1);
         System.out.println(task.toString());
 
-        DBConnection.disconnect(con);
+        DBConnection.disconnect(con);*/
     }
 }
