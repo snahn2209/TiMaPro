@@ -4,6 +4,13 @@ public class TaskDataProvider {
     //TODO: insert Task
 
     //TODO: select Task
+
+    /**
+     * selects task with id
+     * @param con Connection to database
+     * @param id identifier of task as int
+     * @return selected task
+     */
     public static Task selectTask(Connection con, int id){
         if (con!=null){
             ResultSet rs = DBConnection.select(con, "SELECT * FROM tasks WHERE taskID = '"+ id + " '");
