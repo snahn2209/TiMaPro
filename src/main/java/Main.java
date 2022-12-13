@@ -16,9 +16,9 @@ public class Main {
 
         DBConnection.disconnect(con);*/
 
-        Connection con = DBConnection.getConnection();
+        /*Connection con = DBConnection.getConnection();
         Project project7 = ProjectDataProvider.insertProject(con, "Project7", Date.valueOf("2025-07-13"));
         System.out.println(project7.toString());
-        DBConnection.disconnect(con);
+        DBConnection.disconnect(con);*/
     }
 }

@@ -1,7 +1,16 @@
 import java.sql.*;
 
 public class ProjectDataProvider {
-    //TODO: insert Project
+
+
+    /**
+     * insert the project
+     * @param con
+     * @param name
+     * @param deadline
+     * @return
+     * @throws SQLIntegrityConstraintViolationException
+     */
     public static Project insertProject(Connection con, String name, Date deadline) throws SQLIntegrityConstraintViolationException {
 
         if (con != null) {
@@ -15,7 +24,14 @@ public class ProjectDataProvider {
         return null;
     }
 
-    //TODO: select Project
+
+
+    /**
+     * select the project
+     * @param con
+     * @param name
+     * @return
+     */
     public static Project selectProject(Connection con, String name) {
         if (con != null) {
             ResultSet rs = DBConnection.select(con, "SELECT * FROM projects WHERE name='" + name + "'");

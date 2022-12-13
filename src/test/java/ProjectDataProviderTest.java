@@ -7,6 +7,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProjectDataProviderTest {
+
     @Test
     void insertProjectThatDoesntExist() {
         //NOTE: look for a name that isnt already in the db before running this test
