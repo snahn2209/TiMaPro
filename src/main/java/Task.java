@@ -37,6 +37,10 @@ public class Task {
         this.maxPoints = maxPoints;
     }
 
+    public Task(double timeEstimation) {
+        this.timeEstimation = timeEstimation;
+    }
+
     public int getId() {
         return id;
     }
@@ -119,4 +123,13 @@ public class Task {
 
     @Override
     public String toString() {return "taskId: " +id+ " | name: " + name + " | deadline: "+deadline; }
+
+    public int calculateMaxPoints(double timeEstimation){
+        //10 min -> 1 point
+        int timeEstimationInMin = (int) Math.round(timeEstimation * 60);
+
+        int maxPoints = timeEstimationInMin / 10;
+
+        return maxPoints;
+    }
 }

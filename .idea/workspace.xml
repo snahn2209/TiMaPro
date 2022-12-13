@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d9ad9c8-9224-4636-a973-908799fc768d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/TaskTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +65,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TaskDataProviderTest.selectTaskThatDoesntExist">
+  <component name="RunManager" selected="JUnit.TaskTest.calculateMaxPoints">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="ProjectPoints" />
@@ -90,6 +92,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TaskTest.calculateMaxPoints" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TaskTest" />
+      <option name="METHOD_NAME" value="calculateMaxPoints" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserDataProviderTest.selectUserThatDoesntExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProjectPoints" />
       <option name="PACKAGE_NAME" value="" />
@@ -100,23 +112,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserDataProviderTest.selectUserThatExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProjectPoints" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
-      <option name="METHOD_NAME" value="selectUserThatExists" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TaskTest.calculateMaxPoints" />
         <item itemvalue="JUnit.TaskDataProviderTest.selectTaskThatDoesntExist" />
         <item itemvalue="JUnit.TaskDataProviderTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UserDataProviderTest.selectUserThatDoesntExists" />
-        <item itemvalue="JUnit.UserDataProviderTest.selectUserThatExists" />
       </list>
     </recent_temporary>
   </component>

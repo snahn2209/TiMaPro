@@ -2,8 +2,7 @@ import java.sql.*;
 
 public class TaskDataProvider {
     //TODO: insert Task
-
-    //TODO: select Task
+    //public static Task insertTask(Connection con, )
 
     /**
      * selects task with id
