@@ -124,7 +124,7 @@ public class Task {
     @Override
     public String toString() {return "taskId: " +id+ " | name: " + name + " | deadline: "+deadline; }
 
-    public int calculateMaxPoints(double timeEstimation){
+    public static int calculateMaxPoints(double timeEstimation){
         //10 min -> 1 point
         int timeEstimationInMin = (int) Math.round(timeEstimation * 60);
 

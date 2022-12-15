@@ -6,8 +6,7 @@ class TaskTest {
 
     @Test
     void calculateMaxPoints() {
-        Task task = new Task(1.0);
-        assertEquals(6, task.calculateMaxPoints(1.0));
+        assertEquals(6, Task.calculateMaxPoints(1.0));
 
     }
 }
