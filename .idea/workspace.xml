@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0d9ad9c8-9224-4636-a973-908799fc768d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ProjectDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProjectDataProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ProjectDataProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ProjectDataProviderTest.java" afterDir="false" />
     </list>
@@ -66,19 +65,22 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProjectDataProviderTest.insertProjectThatDoesntExist">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="time-management-challenge" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.ProjectDataProviderTest.insertProjectThatDoesntExist (1)">
     <configuration name="ProjectDataProviderTest.insertProjectThatDoesAlreadyExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="time-management-challenge" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ProjectDataProviderTest" />
       <option name="METHOD_NAME" value="insertProjectThatDoesAlreadyExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProjectDataProviderTest.insertProjectThatDoesntExist (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ProjectDataProviderTest" />
+      <option name="METHOD_NAME" value="insertProjectThatDoesntExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -116,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ProjectDataProviderTest.insertProjectThatDoesntExist (1)" />
         <item itemvalue="JUnit.ProjectDataProviderTest.insertProjectThatDoesntExist" />
         <item itemvalue="JUnit.ProjectDataProviderTest.selectProjectThatDoesntExists" />
         <item itemvalue="JUnit.ProjectDataProviderTest.selectProjectThatExists" />
         <item itemvalue="JUnit.ProjectDataProviderTest.insertProjectThatDoesAlreadyExist" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>

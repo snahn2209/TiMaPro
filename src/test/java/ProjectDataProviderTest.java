@@ -13,7 +13,7 @@ class ProjectDataProviderTest {
         //NOTE: look for a name that isnt already in the db before running this test
         Connection con = DBConnection.getConnection();
         assertAll(
-                () -> assertEquals("Project34", ProjectDataProvider.insertProject(con,"Project34", Date.valueOf("2025-05-24")).getName())
+                () -> assertEquals("Project34", ProjectDataProvider.insertProject(con,"Project34", Date.valueOf("2025-05-24"), new int[]{7, 9}).getName())
         );
         DBConnection.disconnect(con);
         //TODO: remove name after test
@@ -21,7 +21,7 @@ class ProjectDataProviderTest {
     @Test
     void insertProjectThatDoesAlreadyExist(){
         Connection con = DBConnection.getConnection();
-        assertThrows(SQLIntegrityConstraintViolationException.class,() -> ProjectDataProvider.insertProject(con,"Project1", Date.valueOf("2022-12-31")));
+        assertThrows(SQLIntegrityConstraintViolationException.class,() -> ProjectDataProvider.insertProject(con,"Project1", Date.valueOf("2022-12-31"), new int[]{7, 9}));
         DBConnection.disconnect(con);
     }
     @Test

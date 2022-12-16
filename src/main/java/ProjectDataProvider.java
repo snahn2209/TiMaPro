@@ -8,15 +8,19 @@ public class ProjectDataProvider {
      * @param con
      * @param name
      * @param deadline
-     * @return
+     * @return inserted Project
      * @throws SQLIntegrityConstraintViolationException
      */
-    public static Project insertProject(Connection con, String name, Date deadline) throws SQLIntegrityConstraintViolationException {
+    public static Project insertProject(Connection con, String name, Date deadline, int[] memberIDs) throws SQLIntegrityConstraintViolationException {
 
         if (con != null) {
             try {
                 DBConnection.insert(con, "INSERT INTO projects(name,deadline) VALUES('" + name + "','"+ deadline +"')");
-                return ProjectDataProvider.selectProject(con, name);
+                Project insertedProject = ProjectDataProvider.selectProject(con, name);
+                for(int i = 0; i<memberIDs.length; i++){
+                    DBConnection.insert(con, "INSERT INTO projectuser(projectID, userID, userpoints) VALUES("+insertedProject.getID()+","+memberIDs[i]+", 0)");
+                }
+                return insertedProject;
             } catch (SQLIntegrityConstraintViolationException e) {
                 throw e;
             }
@@ -30,7 +34,7 @@ public class ProjectDataProvider {
      * select the project
      * @param con
      * @param name
-     * @return
+     * @return selected Project
      */
     public static Project selectProject(Connection con, String name) {
         if (con != null) {
