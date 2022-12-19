@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0d9ad9c8-9224-4636-a973-908799fc768d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ProjectDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProjectDataProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ProjectDataProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ProjectDataProviderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/UserDataProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserDataProviderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/UserDataProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserDataProvider.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -48,7 +53,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/Info3" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -65,52 +69,49 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProjectDataProviderTest.insertProjectThatDoesntExist (1)">
-    <configuration name="ProjectDataProviderTest.insertProjectThatDoesAlreadyExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="time-management-challenge" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ProjectDataProviderTest" />
-      <option name="METHOD_NAME" value="insertProjectThatDoesAlreadyExist" />
-      <option name="TEST_OBJECT" value="method" />
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ProjectPoints" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProjectDataProviderTest.insertProjectThatDoesntExist (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserDataProviderTest.insertUserThatDoesAlreadyExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProjectPoints" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ProjectDataProviderTest" />
-      <option name="METHOD_NAME" value="insertProjectThatDoesntExist" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="METHOD_NAME" value="insertUserThatDoesAlreadyExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProjectDataProviderTest.insertProjectThatDoesntExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="time-management-challenge" />
+    <configuration name="UserDataProviderTest.insertUserThatDoesntExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ProjectDataProviderTest" />
-      <option name="METHOD_NAME" value="insertProjectThatDoesntExist" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="METHOD_NAME" value="insertUserThatDoesntExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProjectDataProviderTest.selectProjectThatDoesntExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="time-management-challenge" />
+    <configuration name="UserDataProviderTest.selectUserThatDoesntExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ProjectDataProviderTest" />
-      <option name="METHOD_NAME" value="selectProjectThatDoesntExists" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="METHOD_NAME" value="selectUserThatDoesntExists" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProjectDataProviderTest.selectProjectThatExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="time-management-challenge" />
+    <configuration name="UserDataProviderTest.selectUserThatExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ProjectDataProviderTest" />
-      <option name="METHOD_NAME" value="selectProjectThatExists" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="METHOD_NAME" value="selectUserThatExists" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -118,11 +119,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProjectDataProviderTest.insertProjectThatDoesntExist (1)" />
-        <item itemvalue="JUnit.ProjectDataProviderTest.insertProjectThatDoesntExist" />
-        <item itemvalue="JUnit.ProjectDataProviderTest.selectProjectThatDoesntExists" />
-        <item itemvalue="JUnit.ProjectDataProviderTest.selectProjectThatExists" />
-        <item itemvalue="JUnit.ProjectDataProviderTest.insertProjectThatDoesAlreadyExist" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.UserDataProviderTest.selectUserThatDoesntExists" />
+        <item itemvalue="JUnit.UserDataProviderTest.selectUserThatExists" />
+        <item itemvalue="JUnit.UserDataProviderTest.insertUserThatDoesAlreadyExist" />
+        <item itemvalue="JUnit.UserDataProviderTest.insertUserThatDoesntExist" />
       </list>
     </recent_temporary>
   </component>
@@ -158,15 +159,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.sql.SQLSyntaxErrorException" package="java.sql" />
-          <option name="timeStamp" value="2" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

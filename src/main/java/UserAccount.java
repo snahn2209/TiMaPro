@@ -35,6 +35,6 @@ public class UserAccount {
 
     @Override
     public String toString(){
-        return "UserID: "+ ID +" | UserName: "+ name + " | totalPoints: "+ totalPoints;
+        return "UserID: "+ ID +" | UserName: "+ name + " | totalPoints: "+ totalPoints + " \n ";
     }
 }

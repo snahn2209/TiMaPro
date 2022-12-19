@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws SQLIntegrityConstraintViolationException {
@@ -11,8 +12,8 @@ public class Main {
         System.out.println(user.toString());
         Connection con = DBConnection.getConnection();
 
-        UserAccount user = UserDataProvider.insertUser(con, "Mayaaa");
-        System.out.println(user.toString());
+        List<UserAccount> users = UserDataProvider.selectAllUsers(con);
+        System.out.println(users.toString());
 
         DBConnection.disconnect(con);*/
 
