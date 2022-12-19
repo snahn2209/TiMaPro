@@ -9,14 +9,15 @@ import static org.junit.jupiter.api.Assertions.*;
 class TaskDataProviderTest {
     @Test
     void insertTaskThatDoesNotExist() throws SQLIntegrityConstraintViolationException {
-        //NOTE: use another name before running the test
         Connection con = DBConnection.getConnection();
-        Task insertedTask = TaskDataProvider.insertTask(con, "Task5", Date.valueOf("2023-03-01"), 1.5, 9, 2, 1);
+        Task insertedTask = TaskDataProvider.insertTask(con, "Test-Task", Date.valueOf("2023-03-01"), 1.5, 9, 2, 1);
         System.out.println(insertedTask.toString());
-        assertEquals("Task5", insertedTask.getName());
-        DBConnection.disconnect(con);
+        assertEquals("Test-Task", insertedTask.getName());
 
-        //TODO: delete task after test
+        //delete test-user
+        TaskDataProvider.deleteTask(con, insertedTask.getId());
+
+        DBConnection.disconnect(con);
     }
 
     @Test
@@ -38,7 +39,7 @@ class TaskDataProviderTest {
     void deleteTask(){
         //TODO: improve (Task ID should not be found in tasks after deletion)
         Connection con = DBConnection.getConnection();
-        boolean executedSuccessfully = TaskDataProvider.deleteTask(con, 6);
+        boolean executedSuccessfully = TaskDataProvider.deleteTask(con, 7);
         assertTrue(executedSuccessfully);
         DBConnection.disconnect(con);
     }

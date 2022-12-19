@@ -18,7 +18,7 @@ class UserDataProviderTest {
 
         //delete test-user
         UserDataProvider.deleteUser(con, insertedUser.getID());
-        
+
         DBConnection.disconnect(con);
     }
 
