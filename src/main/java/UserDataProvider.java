@@ -81,7 +81,19 @@ public class    UserDataProvider {
         return null;
     }
 
-    //TODO: delete user
+    /**
+     * deletes user with specific ID
+     * @param con Connection to DB
+     * @param userID unique ID of user
+     * @return whether the deletion was successfully
+     */
+    public static boolean deleteUser(Connection con, int userID){
+        if(con!=null){
+            return DBConnection.delete(con, "DELETE FROM  useraccount WHERE userID = '"+ userID + "'");
+        }
+        return false;
+    }
+
     //TODO: update totalpoints
 
 }
