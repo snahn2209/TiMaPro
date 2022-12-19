@@ -11,7 +11,7 @@ public class TaskDataProvider {
      * @param priority priority of the new task
      * @param userId userID of responsible Person (in group-projects)
      * @param projectId projectId of project to which the task belongs to
-     * @return new task
+     * @return inserted Task
      * @throws SQLIntegrityConstraintViolationException when task has a name that already exists in DB
      */
     public static Task insertTask(Connection con, String name, Date deadline, double timeEstimation, int priority, int userId, int projectId) throws SQLIntegrityConstraintViolationException {
@@ -19,26 +19,33 @@ public class TaskDataProvider {
         int maxPoints = Task.calculateMaxPoints(timeEstimation);
 
         if(con!=null){
-            DBConnection.insert(con, "INSERT INTO tasks (name, deadline, timeestimation, prio, done, maxpoints, responsibleuserid, projectid) VALUES ('" + name + "', '" + deadline + "', " + timeEstimation + ", " + priority + ", " + done + ", " + maxPoints+ ","+userId+","+projectId+ ")");
-            return TaskDataProvider.selectTask(con, name);
+            ResultSet key = DBConnection.insert(con, "INSERT INTO tasks (name, deadline, timeestimation, prio, done, maxpoints, responsibleuserid, projectid) VALUES ('" + name + "', '" + deadline + "', " + timeEstimation + ", " + priority + ", " + done + ", " + maxPoints+ ","+userId+","+projectId+ ")");
+            try {
+                if(key.next()){
+                    int taskID = key.getInt(1);
+                    return TaskDataProvider.selectTask(con, taskID);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return null;
-
     }
+
 
     /**
      * selects task with name
      * @param con Connection to database
-     * @param name unique name of task as String
+     * @param taskID unique id of task
      * @return selected task
      */
-    public static Task selectTask(Connection con, String name){
+    public static Task selectTask(Connection con, int taskID){
         if (con!=null){
-            ResultSet rs = DBConnection.select(con, "SELECT * FROM tasks WHERE name = '"+ name + "'");
+            ResultSet rs = DBConnection.select(con, "SELECT * FROM tasks WHERE taskID = '"+ taskID + "'");
 
             try{
                 if(rs!=null) {
-                    while (rs.next()) {
+                    if(rs.next()) {
                         return new Task(
                                 rs.getInt("taskID"),
                                 rs.getString("name"),

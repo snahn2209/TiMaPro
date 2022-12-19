@@ -38,6 +38,6 @@ public class Project {
 
     @Override
     public String toString(){
-        return "ProjectID: "+ ID +" | Name: "+ name + " | deadline: "+ deadline;
+        return "ProjectID: "+ ID +" | name: "+ name + " | deadline: "+ deadline;
     }
 }

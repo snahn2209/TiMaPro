@@ -5,24 +5,25 @@ public class ProjectDataProvider {
 
     /**
      * insert the project
-     * @param con
-     * @param name
-     * @param deadline
+     * @param con Connection to DB
+     * @param name Name of Project
+     * @param deadline Deadline of Project
      * @return inserted Project
-     * @throws SQLIntegrityConstraintViolationException
      */
     public static Project insertProject(Connection con, String name, Date deadline, int[] memberIDs) throws SQLIntegrityConstraintViolationException {
-
         if (con != null) {
+            ResultSet key = DBConnection.insert(con, "INSERT INTO projects(name,deadline) VALUES('" + name + "','"+ deadline +"')");
             try {
-                DBConnection.insert(con, "INSERT INTO projects(name,deadline) VALUES('" + name + "','"+ deadline +"')");
-                Project insertedProject = ProjectDataProvider.selectProject(con, name);
-                for(int i = 0; i<memberIDs.length; i++){
-                    DBConnection.insert(con, "INSERT INTO projectuser(projectID, userID, userpoints) VALUES("+insertedProject.getID()+","+memberIDs[i]+", 0)");
+                if(key.next()) {
+                    int projectID = key.getInt(1);
+                    Project insertedProject = ProjectDataProvider.selectProject(con, projectID);
+                    for(int i = 0; i<memberIDs.length; i++){
+                        DBConnection.insert(con, "INSERT INTO projectuser(projectID, userID, userpoints) VALUES("+insertedProject.getID()+","+memberIDs[i]+", 0)");
+                    }
+                    return insertedProject;
                 }
-                return insertedProject;
-            } catch (SQLIntegrityConstraintViolationException e) {
-                throw e;
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
         return null;
@@ -32,16 +33,16 @@ public class ProjectDataProvider {
 
     /**
      * select the project
-     * @param con
-     * @param name
+     * @param con Connection to DB
+     * @param projectID ID of Project
      * @return selected Project
      */
-    public static Project selectProject(Connection con, String name) {
+    public static Project selectProject(Connection con, int projectID) {
         if (con != null) {
-            ResultSet rs = DBConnection.select(con, "SELECT * FROM projects WHERE name='" + name + "'");
+            ResultSet rs = DBConnection.select(con, "SELECT * FROM projects WHERE projectID='" + projectID + "'");
             try {
                 if (rs != null) {
-                    while (rs.next()) {
+                    if(rs.next()) {
                         return new Project(
                                 rs.getInt("projectID"),
                                 rs.getString("name"),
