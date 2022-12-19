@@ -9,8 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class TaskDataProviderTest {
     @Test
     void insertTaskThatDoesNotExist() throws SQLIntegrityConstraintViolationException {
+        //NOTE: use another name before running the test
         Connection con = DBConnection.getConnection();
-        assertEquals("ToDo3", TaskDataProvider.insertTask(con, "ToDo3", Date.valueOf("2022-12-17"), 1.0, 7, 1, 1).getName());
+        assertEquals("Task2", TaskDataProvider.insertTask(con, "Task2", Date.valueOf("2022-12-31"), 1.5, 9, 2, 2).getName());
         DBConnection.disconnect(con);
     }
 

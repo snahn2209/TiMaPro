@@ -6,16 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0d9ad9c8-9224-4636-a973-908799fc768d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/TaskDataProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskDataProviderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Task.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/TaskDataProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TaskDataProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/TaskDataProviderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TaskDataProviderTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TaskTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TaskTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,14 +66,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TaskDataProviderTest.insertTaskThatExists">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="ProjectPoints" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TaskDataProviderTest.insertTaskThatDoesNotExist">
     <configuration name="TaskDataProviderTest.insertTaskThatDoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProjectPoints" />
       <option name="PACKAGE_NAME" value="" />
@@ -90,31 +77,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TaskDataProviderTest.insertTaskThatExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserDataProviderTest.insertUserThatDoesAlreadyExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProjectPoints" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TaskDataProviderTest" />
-      <option name="METHOD_NAME" value="insertTaskThatExists" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="METHOD_NAME" value="insertUserThatDoesAlreadyExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TaskDataProviderTest.selectTaskThatDoesntExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserDataProviderTest.insertUserThatDoesntExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProjectPoints" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TaskDataProviderTest" />
-      <option name="METHOD_NAME" value="selectTaskThatDoesntExist" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="METHOD_NAME" value="insertUserThatDoesntExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TaskDataProviderTest.selectTaskThatExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserDataProviderTest.selectUserThatDoesntExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProjectPoints" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TaskDataProviderTest" />
-      <option name="METHOD_NAME" value="selectTaskThatExists" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="METHOD_NAME" value="selectUserThatDoesntExists" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserDataProviderTest.selectUserThatExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="METHOD_NAME" value="selectUserThatExists" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,11 +119,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TaskDataProviderTest.insertTaskThatExists" />
         <item itemvalue="JUnit.TaskDataProviderTest.insertTaskThatDoesNotExist" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.TaskDataProviderTest.selectTaskThatExists" />
-        <item itemvalue="JUnit.TaskDataProviderTest.selectTaskThatDoesntExist" />
+        <item itemvalue="JUnit.UserDataProviderTest.insertUserThatDoesntExist" />
+        <item itemvalue="JUnit.UserDataProviderTest.selectUserThatDoesntExists" />
+        <item itemvalue="JUnit.UserDataProviderTest.selectUserThatExists" />
+        <item itemvalue="JUnit.UserDataProviderTest.insertUserThatDoesAlreadyExist" />
       </list>
     </recent_temporary>
   </component>
