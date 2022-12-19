@@ -19,10 +19,10 @@ public class TaskDataProvider {
         int maxPoints = Task.calculateMaxPoints(timeEstimation);
 
         if(con!=null){
-            ResultSet keys = DBConnection.insert(con, "INSERT INTO tasks (name, deadline, timeestimation, prio, done, maxpoints, responsibleuserid, projectid) VALUES ('" + name + "', '" + deadline + "', " + timeEstimation + ", " + priority + ", " + done + ", " + maxPoints+ ","+userId+","+projectId+ ")");
+            ResultSet key = DBConnection.insert(con, "INSERT INTO tasks (name, deadline, timeestimation, prio, done, maxpoints, responsibleuserid, projectid) VALUES ('" + name + "', '" + deadline + "', " + timeEstimation + ", " + priority + ", " + done + ", " + maxPoints+ ","+userId+","+projectId+ ")");
             try {
-                if(keys.next()){
-                    int taskID = keys.getInt(1);
+                if(key.next()){
+                    int taskID = key.getInt(1);
                     return TaskDataProvider.selectTask(con, taskID);
                 }
             } catch (SQLException e) {

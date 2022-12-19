@@ -5,51 +5,22 @@ public class ProjectDataProvider {
 
     /**
      * insert the project
-     * @param con
-     * @param name
-     * @param deadline
+     * @param con Connection to DB
+     * @param name Name of Project
+     * @param deadline Deadline of Project
      * @return inserted Project
-     * @throws SQLIntegrityConstraintViolationException
      */
-    /*public static Project insertProject(Connection con, String name, Date deadline, int[] memberIDs) throws SQLIntegrityConstraintViolationException {
-
+    public static Project insertProject(Connection con, String name, Date deadline, int[] memberIDs) throws SQLIntegrityConstraintViolationException {
         if (con != null) {
+            ResultSet key = DBConnection.insert(con, "INSERT INTO projects(name,deadline) VALUES('" + name + "','"+ deadline +"')");
             try {
-                DBConnection.insert(con, "INSERT INTO projects(name,deadline) VALUES('" + name + "','"+ deadline +"')");
-                Project insertedProject = ProjectDataProvider.selectProject(con, name);
-                for(int i = 0; i<memberIDs.length; i++){
-                    DBConnection.insert(con, "INSERT INTO projectuser(projectID, userID, userpoints) VALUES("+insertedProject.getID()+","+memberIDs[i]+", 0)");
-                }
-                return insertedProject;
-            } catch (SQLIntegrityConstraintViolationException e) {
-                throw e;
-            }
-        }
-        return null;
-    }
-     */
-
-
-
-    /**
-     * select the project
-     * @param con
-     * @param name
-     * @return selected Project
-     */
-    /*
-    public static Project selectProject(Connection con, String name) {
-        if (con != null) {
-            ResultSet rs = DBConnection.select(con, "SELECT * FROM projects WHERE name='" + name + "'");
-            try {
-                if (rs != null) {
-                    while (rs.next()) {
-                        return new Project(
-                                rs.getInt("projectID"),
-                                rs.getString("name"),
-                                rs.getDate("deadline")
-                        );
+                if(key.next()) {
+                    int projectID = key.getInt(1);
+                    Project insertedProject = ProjectDataProvider.selectProject(con, projectID);
+                    for(int i = 0; i<memberIDs.length; i++){
+                        DBConnection.insert(con, "INSERT INTO projectuser(projectID, userID, userpoints) VALUES("+insertedProject.getID()+","+memberIDs[i]+", 0)");
                     }
+                    return insertedProject;
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -57,8 +28,15 @@ public class ProjectDataProvider {
         }
         return null;
     }
-     */
 
+
+
+    /**
+     * select the project
+     * @param con Connection to DB
+     * @param projectID ID of Project
+     * @return selected Project
+     */
     public static Project selectProject(Connection con, int projectID) {
         if (con != null) {
             ResultSet rs = DBConnection.select(con, "SELECT * FROM projects WHERE projectID='" + projectID + "'");
