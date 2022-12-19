@@ -14,7 +14,7 @@ public class TaskDataProvider {
      * @return new task
      * @throws SQLIntegrityConstraintViolationException when task has a name that already exists in DB
      */
-    public static Task insertTask(Connection con, String name, Date deadline, double timeEstimation, int priority, int userId, int projectId) throws SQLIntegrityConstraintViolationException {
+    /*public static Task insertTask(Connection con, String name, Date deadline, double timeEstimation, int priority, int userId, int projectId) throws SQLIntegrityConstraintViolationException {
         boolean done = false;
         int maxPoints = Task.calculateMaxPoints(timeEstimation);
 
@@ -25,6 +25,7 @@ public class TaskDataProvider {
         return null;
 
     }
+     */
 
     /**
      * selects task with name
@@ -32,9 +33,39 @@ public class TaskDataProvider {
      * @param name unique name of task as String
      * @return selected task
      */
+    /*
     public static Task selectTask(Connection con, String name){
         if (con!=null){
             ResultSet rs = DBConnection.select(con, "SELECT * FROM tasks WHERE name = '"+ name + "'");
+
+            try{
+                if(rs!=null) {
+                    while (rs.next()) {
+                        return new Task(
+                                rs.getInt("taskID"),
+                                rs.getString("name"),
+                                rs.getDate("deadline"),
+                                rs.getDouble("timeestimation"),
+                                rs.getInt("prio"),
+                                rs.getBoolean("done"),
+                                rs.getDate("gotdonedate"),
+                                rs.getInt("maxpoints")
+                                //TODO rs.getInt("responsibleuserid")
+                                //TODO get project
+                        );
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+   */
+
+    public static Task selectTask(Connection con, int taskID){
+        if (con!=null){
+            ResultSet rs = DBConnection.select(con, "SELECT * FROM tasks WHERE taskID = '"+ taskID + "'");
 
             try{
                 if(rs!=null) {
