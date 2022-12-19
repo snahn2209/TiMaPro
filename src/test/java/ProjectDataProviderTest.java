@@ -42,7 +42,7 @@ class ProjectDataProviderTest {
     void deleteProject() {
         //NOTE: look for a user ID that exists
         Connection con = DBConnection.getConnection();
-        boolean executedSuccessfully = ProjectDataProvider.deleteProject(con, 4);
+        boolean executedSuccessfully = ProjectDataProvider.deleteProject(con, 6);
         assertTrue(executedSuccessfully);
         DBConnection.disconnect(con);
     }

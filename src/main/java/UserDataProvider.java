@@ -88,9 +88,12 @@ public class    UserDataProvider {
      * @return whether the deletion was successfully
      */
     public static boolean deleteUser(Connection con, int userID){
-        //TODO: update all tasks liked to this user
-        //TODO: update all projects linked to this user
+        //TODO: update all tasks linked to this user
+
         if(con!=null){
+            //delete user from all projects
+            DBConnection.delete(con, "DELETE FROM projectuser WHERE userID = '"+ userID + "'");
+
             return DBConnection.delete(con, "DELETE FROM  useraccount WHERE userID = '"+ userID + "'");
         }
         return false;

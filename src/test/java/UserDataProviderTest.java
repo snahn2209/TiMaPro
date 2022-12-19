@@ -50,9 +50,8 @@ class UserDataProviderTest {
     @Test
     void deleteUser() {
         //NOTE: look for a user ID that exists
-        //TODO: improve (User ID should not be found in tasks after deletion)
         Connection con = DBConnection.getConnection();
-        boolean executedSuccessfully = UserDataProvider.deleteUser(con, 3);
+        boolean executedSuccessfully = UserDataProvider.deleteUser(con, 7);
         assertTrue(executedSuccessfully);
         DBConnection.disconnect(con);
     }
