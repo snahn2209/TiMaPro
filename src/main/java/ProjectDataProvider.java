@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.List;
 
 public class ProjectDataProvider {
 
@@ -55,5 +56,18 @@ public class ProjectDataProvider {
             }
         }
         return null;
+    }
+
+    public static boolean deleteProject(Connection con, int projectID){
+        if(con!=null){
+            //select task all tasks of this project and delete them
+            DBConnection.delete(con, "DELETE FROM tasks WHERE projectid = '"+ projectID + "'");
+
+            //delete all rows of projectUser of this project
+            DBConnection.delete(con, "DELETE FROM projectuser WHERE projectID = '"+ projectID + "'");
+
+            return DBConnection.delete(con, "DELETE FROM projects WHERE projectID = '"+ projectID + "'");
+        }
+        return false;
     }
 }

@@ -15,9 +15,11 @@ class ProjectDataProviderTest {
         Project insertedProject = ProjectDataProvider.insertProject(con,"Project3", Date.valueOf("2025-05-24"), new int[]{1, 2});
         System.out.println(insertedProject.toString());
         assertEquals("Project3", insertedProject.getName());
-        DBConnection.disconnect(con);
 
-        //TODO: remove name after test
+        //delete test-project
+        ProjectDataProvider.deleteProject(con, insertedProject.getID());
+
+        DBConnection.disconnect(con);
     }
 
     @Test
@@ -33,6 +35,15 @@ class ProjectDataProviderTest {
     void selectProjectThatDoesntExists() {
         Connection con = DBConnection.getConnection();
         assertNull(ProjectDataProvider.selectProject(con,100000));
+        DBConnection.disconnect(con);
+    }
+
+    @Test
+    void deleteProject() {
+        //NOTE: look for a user ID that exists
+        Connection con = DBConnection.getConnection();
+        boolean executedSuccessfully = ProjectDataProvider.deleteProject(con, 4);
+        assertTrue(executedSuccessfully);
         DBConnection.disconnect(con);
     }
 }

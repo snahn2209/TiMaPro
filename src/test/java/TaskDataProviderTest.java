@@ -14,7 +14,7 @@ class TaskDataProviderTest {
         System.out.println(insertedTask.toString());
         assertEquals("Test-Task", insertedTask.getName());
 
-        //delete test-user
+        //delete test-task
         TaskDataProvider.deleteTask(con, insertedTask.getId());
 
         DBConnection.disconnect(con);
