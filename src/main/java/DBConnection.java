@@ -51,17 +51,21 @@ public class DBConnection {
      * @param con Connection
      * @param qry Query String
      */
-    public static void insert(Connection con, String qry) throws SQLIntegrityConstraintViolationException {
+    public static ResultSet insert(Connection con, String qry) throws SQLIntegrityConstraintViolationException {
         try {
-            PreparedStatement stmt = con.prepareStatement(qry);
+            PreparedStatement stmt = con.prepareStatement(qry, Statement.RETURN_GENERATED_KEYS); //returns autoincrement indices
             stmt.execute();
+            ResultSet keys = stmt.getGeneratedKeys();
             System.out.println("[INSERT executed]");
+
+            return keys;
 
         } catch(SQLIntegrityConstraintViolationException e){
             throw e;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     /**

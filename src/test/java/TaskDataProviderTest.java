@@ -11,14 +11,16 @@ class TaskDataProviderTest {
     void insertTaskThatDoesNotExist() throws SQLIntegrityConstraintViolationException {
         //NOTE: use another name before running the test
         Connection con = DBConnection.getConnection();
-        //TODO: assertEquals("Task2", TaskDataProvider.insertTask(con, "Task2", Date.valueOf("2022-12-31"), 1.5, 9, 2, 2).getName());
+        Task insertedTask = TaskDataProvider.insertTask(con, "Task3", Date.valueOf("2023-03-01"), 1.5, 9, 1, 1);
+        System.out.println(insertedTask.toString());
+        assertEquals("Task3", insertedTask.getName());
         DBConnection.disconnect(con);
     }
 
     @Test
     void insertTaskThatExists(){
         Connection con = DBConnection.getConnection();
-        //TODO: assertThrows(SQLIntegrityConstraintViolationException.class, () -> TaskDataProvider.insertTask(con,"hallo", Date.valueOf("2022-12-16"), 1.5, 3, 1, 1));
+        assertThrows(SQLIntegrityConstraintViolationException.class, () -> TaskDataProvider.insertTask(con,"hallo", Date.valueOf("2022-12-16"), 1.5, 3, 1, 1));
         DBConnection.disconnect(con);
     }
 
