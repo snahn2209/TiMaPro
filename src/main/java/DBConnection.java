@@ -33,7 +33,7 @@ public class DBConnection {
 
     /**
      * breaks connectin to database
-     * @param con
+     * @param con Connection to DB
      */
     public static void disconnect(Connection con){
         if(isConnected()){
@@ -48,8 +48,9 @@ public class DBConnection {
 
     /**
      * sends INSERT query to database
-     * @param con Connection
+     * @param con Connection to DB
      * @param qry Query String
+     * @return keys to inserted rows
      */
     public static ResultSet insert(Connection con, String qry) throws SQLIntegrityConstraintViolationException {
         try {
@@ -86,6 +87,22 @@ public class DBConnection {
         return null;
     }
 
+    /**
+     * @param con Connection to DB
+     * @param qry query String
+     * @return boolean: weather or not the execution was successfully
+     */
+    public static boolean delete(Connection con, String qry){
+        try {
+            PreparedStatement stmt = con.prepareStatement(qry); //returns autoincrement indices
+            stmt.execute();
+            System.out.println("[DELETE executed]");
+            return  true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     //TODO: update()
-    //TODO: delete()
 }

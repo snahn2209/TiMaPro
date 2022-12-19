@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d9ad9c8-9224-4636-a973-908799fc768d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/TaskDataProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskDataProviderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DBConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DBConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TaskDataProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TaskDataProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TaskDataProviderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TaskDataProviderTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,32 +68,42 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TaskDataProviderTest.insertTaskThatDoesNotExist">
-    <configuration name="ProjectDataProviderTest.insertProjectThatDoesntExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProjectPoints" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ProjectDataProviderTest" />
-      <option name="METHOD_NAME" value="insertProjectThatDoesntExist" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProjectDataProviderTest.selectProjectThatDoesntExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProjectPoints" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ProjectDataProviderTest" />
-      <option name="METHOD_NAME" value="selectProjectThatDoesntExists" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TaskDataProviderTest.deleteTask">
     <configuration name="ProjectDataProviderTest.selectProjectThatExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProjectPoints" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ProjectDataProviderTest" />
       <option name="METHOD_NAME" value="selectProjectThatExists" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TaskDataProviderTest.deleteExistingTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TaskDataProviderTest" />
+      <option name="METHOD_NAME" value="deleteExistingTask" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TaskDataProviderTest.deleteNotExistingTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TaskDataProviderTest" />
+      <option name="METHOD_NAME" value="deleteNotExistingTask" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TaskDataProviderTest.deleteTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TaskDataProviderTest" />
+      <option name="METHOD_NAME" value="deleteTask" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -103,23 +119,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TaskDataProviderTest.selectTaskThatDoesntExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProjectPoints" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TaskDataProviderTest" />
-      <option name="METHOD_NAME" value="selectTaskThatDoesntExist" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TaskDataProviderTest.deleteTask" />
+        <item itemvalue="JUnit.TaskDataProviderTest.deleteNotExistingTask" />
+        <item itemvalue="JUnit.TaskDataProviderTest.deleteExistingTask" />
         <item itemvalue="JUnit.TaskDataProviderTest.insertTaskThatDoesNotExist" />
         <item itemvalue="JUnit.ProjectDataProviderTest.selectProjectThatExists" />
-        <item itemvalue="JUnit.ProjectDataProviderTest.insertProjectThatDoesntExist" />
-        <item itemvalue="JUnit.ProjectDataProviderTest.selectProjectThatDoesntExists" />
-        <item itemvalue="JUnit.TaskDataProviderTest.selectTaskThatDoesntExist" />
       </list>
     </recent_temporary>
   </component>

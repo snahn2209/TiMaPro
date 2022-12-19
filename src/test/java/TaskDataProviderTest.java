@@ -34,6 +34,13 @@ class TaskDataProviderTest {
         DBConnection.disconnect(con);
     }
 
-
+    @Test
+    void deleteTask(){
+        //TODO: improve (Task ID should not be found in tasks after deletion)
+        Connection con = DBConnection.getConnection();
+        boolean executedSuccessfully = TaskDataProvider.deleteTask(con, 6);
+        assertTrue(executedSuccessfully);
+        DBConnection.disconnect(con);
+    }
 
 }
