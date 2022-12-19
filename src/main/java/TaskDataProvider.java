@@ -34,7 +34,7 @@ public class TaskDataProvider {
 
 
     /**
-     * selects task with name
+     * selects  a task specific ID
      * @param con Connection to database
      * @param taskID unique id of task
      * @return selected task
@@ -55,8 +55,8 @@ public class TaskDataProvider {
                                 rs.getBoolean("done"),
                                 rs.getDate("gotdonedate"),
                                 rs.getInt("maxpoints")
-                                //TODO rs.getInt("responsibleuserid")
-                                //TODO get project
+                                //TODO get responsible person by id
+                                //TODO get project by id
                         );
                     }
                 }
@@ -65,5 +65,18 @@ public class TaskDataProvider {
             }
         }
         return null;
+    }
+
+    /**
+     * deletes a task with specific ID
+     * @param con Connection to DB
+     * @param taskID unique ID of task
+     * @return booelan -> weather or not deletion was successfully
+     */
+    public static boolean deleteTask(Connection con, int taskID){
+        if(con!=null){
+            return DBConnection.delete(con, "DELETE FROM tasks WHERE taskID = '"+ taskID + "'");
+        }
+        return false;
     }
 }

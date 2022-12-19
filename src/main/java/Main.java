@@ -5,21 +5,14 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws SQLIntegrityConstraintViolationException {
-        /*
-        UserDataProvider.insertUser("Pia");
 
-        UserAccount user = UserDataProvider.selectUser("Pia");
-        System.out.println(user.toString());
+        /*
         Connection con = DBConnection.getConnection();
 
-        List<UserAccount> users = UserDataProvider.selectAllUsers(con);
-        System.out.println(users.toString());
+        UserDataProvider.insertUser(con, "newUser");
+        ProjectDataProvider.insertProject(con, "Test-Project",Date.valueOf("2022-05-04"),new int[]{1,2,7});
 
-        DBConnection.disconnect(con);*/
-
-        /*Connection con = DBConnection.getConnection();
-        Project project7 = ProjectDataProvider.insertProject(con, "Project7", Date.valueOf("2025-07-13"));
-        System.out.println(project7.toString());
-        DBConnection.disconnect(con);*/
+        DBConnection.disconnect(con);
+         */
     }
 }
