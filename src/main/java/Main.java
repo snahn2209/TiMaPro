@@ -32,10 +32,33 @@ public class Main {
 
         //http://localhost:4567/
         get("/", (req, res) -> {return "<b>Welcome to TMProject</b>";} );
-        //http://localhost:4567/TMProject
-        get("/TMProject", (req, res) -> {
+
+        //http://localhost:4567/TMProject/login
+        get("/TMProject/login", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            ModelAndView modelAndView = new ModelAndView(model, "TMProject");
+            ModelAndView modelAndView = new ModelAndView(model, "LoginForm");
+            return modelAndView;
+        }, new JadeTemplateEngine());
+
+        //http://localhost:4567/TMProject/register
+        get("/TMProject/register", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            ModelAndView modelAndView = new ModelAndView(model, "RegisterForm");
+            return modelAndView;
+        }, new JadeTemplateEngine());
+
+        post("/TMProject/register", (req, res) -> {
+            // Get name from register form
+            String userName = req.queryParams("name");
+
+            //method calls
+            Connection con = DBConnection.getConnection();
+            UserAccount insertedUser = UserDataProvider.insertUser(con,userName);
+            DBConnection.disconnect(con);
+
+            //navigate to next page
+            Map<String, Object> model = new HashMap<>();
+            ModelAndView modelAndView = new ModelAndView(model, "ProjectsView");
             return modelAndView;
         }, new JadeTemplateEngine());
 
