@@ -5,11 +5,9 @@ html(lang='en')
     title TMProject
   body
     h1 Register
-    form(method="POST" action="/TMProject/register")
-      input(type='text', placeholder='name')
-      //input(type='password', placeholder='password')
-      //input(type='text', placeholder='email address')
-      button create
+    form(method="POST", action="/TMProject/register")
+      input(type='text', name="name", placeholder='name')
+      input(type="submit" value="register")
       p.message
         | Already registered?
         a(href='../TMProject/login') Sign In

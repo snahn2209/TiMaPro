@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d9ad9c8-9224-4636-a973-908799fc768d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/LoginForm.jade" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/RegisterForm.jade" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ProjectController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/ProjectsDashboard.jade" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Login.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/LoginForm.jade" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/LoginForm.jade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/RegisterForm.jade" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/RegisterForm.jade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Login.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/UserDataProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserDataProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/LoginForm.jade" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/LoginForm.jade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/RegisterForm.jade" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/RegisterForm.jade" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
