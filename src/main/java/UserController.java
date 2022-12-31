@@ -1,12 +1,14 @@
+import static spark.Spark.*;
 import spark.ModelAndView;
 import spark.template.jade.JadeTemplateEngine;
+
+import java.nio.charset.StandardCharsets;
+import java.net.URLEncoder;
 
 import java.sql.Connection;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.HashMap;
 import java.util.Map;
-
-import static spark.Spark.*;
 
 public class UserController {
     public UserController() {
@@ -35,7 +37,9 @@ public class UserController {
                 UserAccount insertedUser = UserDataProvider.insertUser(con,userName);
                 if(insertedUser!=null){
                     //redirect to ProjectsDashboard
-                    res.redirect("/TMProject/Projects?username="+insertedUser.getName()); //name müsste für url encoded werden
+                    //encode ursername
+                    String encodedUserName = URLEncoder.encode(insertedUser.getName(), StandardCharsets.UTF_8.toString());
+                    res.redirect("/TMProject/Projects?username="+encodedUserName);
                 }else {
                     //if user already exists -> redirect to login
                     res.redirect("/TMProject/login");
@@ -61,7 +65,8 @@ public class UserController {
             DBConnection.disconnect(con);
 
             if(existingUser!=null){
-                res.redirect("/TMProject/Projects?username="+userName);
+                String encodedUserName = URLEncoder.encode(userName, StandardCharsets.UTF_8.toString());;
+                res.redirect("/TMProject/Projects?username="+encodedUserName);
             }else {
                 //user doesn't already exist
                 res.redirect("/TMProject/register");

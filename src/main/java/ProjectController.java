@@ -1,6 +1,8 @@
 import spark.ModelAndView;
 import spark.template.jade.JadeTemplateEngine;
 
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +14,10 @@ public class ProjectController {
 
         //http://localhost:4567/TMProject/Projects?username=Pia
         get("/TMProject/Projects", (req, res) -> {
+            //decode url
+            URLDecoder.decode(req.url(), StandardCharsets.UTF_8.toString());
+
+            //get user name from url
             String userName = req.queryParams("username");
 
             Map<String, Object> model = new HashMap<>();
