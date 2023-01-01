@@ -7,3 +7,6 @@ html(lang='en')
     p username:  #{name}
     p earned points: #{totalPoints}
     h1 Projects Dashboard
+    ul
+        for project in projects
+            li #{project.name} - deadline: #{project.deadline}

@@ -5,6 +5,7 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import static spark.Spark.*;
 
@@ -24,15 +25,29 @@ public class ProjectController {
 
             if(userName!=null){
                 Connection con = DBConnection.getConnection();
-
                 UserAccount currentUser = UserDataProvider.selectUser(con, userName);
                 DBConnection.disconnect(con);
 
-                model.put("name", currentUser.getName());
-                model.put("totalPoints", currentUser.getTotalPoints());
+                if(currentUser!=null){
+                    //user exists
+                    model.put("name", currentUser.getName());
+                    model.put("totalPoints", currentUser.getTotalPoints());
 
-                //TODO: select alle projects of user
-                //TODO: error handling wenn user nicht existiert oder username null ist
+                    //select alle projects of user
+                    con = DBConnection.getConnection();
+                    List<Project> listOfProjects = ProjectDataProvider.selectAllProjectsOfUser(con, userName);
+                    DBConnection.disconnect(con);
+                    model.put("projects", listOfProjects);
+
+                }else{
+                    //user doesn't exist -> login
+                    res.redirect("/TMProject/login");
+                    return null;
+                }
+            }else{
+                //username is null -> login
+                res.redirect("/TMProject/login");
+                return null;
             }
 
             ModelAndView modelAndView = new ModelAndView(model, "ProjectsDashboard");
