@@ -59,4 +59,6 @@ public class TaskDataProvider {
         }
         return null;
     }
+
+    //TODO selectAllTasksOfUserInProject()
 }
