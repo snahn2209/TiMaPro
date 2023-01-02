@@ -51,30 +51,6 @@ public class    UserDataProvider {
 
         return null;
     }
-    
-    public static List<UserAccount> selectAllUsers(Connection con){
-        List<UserAccount> listOfUsers = new ArrayList<>();
-        if(con!=null){
-            ResultSet rs = DBConnection.select(con, "SELECT * FROM useraccount");
-            try{
-                if(rs!=null){
-                    while (rs.next()){
-                        listOfUsers.add(new UserAccount(
-                                rs.getInt("userID"),
-                                rs.getString("name"),
-                                rs.getInt("totalpoints")
-                        ));
-                    }
-                }
-                return listOfUsers;
-
-            }catch (SQLException e){
-                e.printStackTrace();
-            }
-        }
-
-        return null;
-    }
 
     //TODO: delete user
     //TODO: update totalpoints
