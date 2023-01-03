@@ -7,9 +7,7 @@ public class DBConnection {
     private static final  String username = "root";
     private static final  String password = "TMProject";
 
-    private static Connection con;
-
-    public static boolean isConnected(){
+    public static boolean isConnected(Connection con){
         return con != null;
     }
 
@@ -18,15 +16,13 @@ public class DBConnection {
      * @return Connection
      */
     public static Connection getConnection(){
-        if(!isConnected()){
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database, username,password);
-                System.out.println("[DB connected]");
-                return con;
-            }catch (ClassNotFoundException | SQLException e) {
-                e.printStackTrace();
-            }
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database, username,password);
+            System.out.println("[DB connected]");
+            return con;
+        }catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -36,7 +32,7 @@ public class DBConnection {
      * @param con
      */
     public static void disconnect(Connection con){
-        if(isConnected()){
+        if(isConnected(con)){
             try {
                 con.close();
                 System.out.println("[DB disconnected]");

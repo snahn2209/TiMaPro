@@ -1,4 +1,6 @@
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProjectDataProvider {
 
@@ -29,9 +31,8 @@ public class ProjectDataProvider {
     }
 
 
-
     /**
-     * select the project
+     * select project with specific
      * @param con
      * @param name
      * @return selected Project
@@ -50,6 +51,44 @@ public class ProjectDataProvider {
                     }
                 }
             } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+
+    /**
+     * select all projects of specific user
+     * @param con Connection to dababase
+     * @param userName
+     * @return list of projects of this user
+     */
+    //TODO: test
+    public static List<Project> selectAllProjectsOfUser(Connection con, String userName){
+        if(con!=null && userName!=null){
+            List<Project> listOfProjects = new ArrayList<>();
+            ResultSet rs = DBConnection.select(con,
+            "select projects.projectID, projects.name, projects.deadline ,projectuser.userID "+
+                    "from TMproject.projectuser " +
+                    "inner join TMproject.projects on projectuser.projectid = projects.projectid " +
+                    "inner join TMproject.useraccount on projectuser.userid = useraccount. userid " +
+                    "where useraccount.name='"+ userName +"';"
+            );
+
+            try{
+                if(rs!=null){
+                    while (rs.next()){
+                        listOfProjects.add(new Project(
+                                rs.getInt("projectID"),
+                                rs.getString("name"),
+                                rs.getDate("deadline")
+                                ));
+                    }
+                    return listOfProjects;
+                }
+
+            }catch (SQLException e){
                 e.printStackTrace();
             }
         }

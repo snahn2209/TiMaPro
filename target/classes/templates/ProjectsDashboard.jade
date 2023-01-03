@@ -1,0 +1,14 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title TMProject
+  body
+    a(href='/TMProject/login') log out
+    p username:  #{name}
+    p earned points: #{totalPoints}
+    h1 Projects Dashboard
+    a(href='...') + new project
+    ul
+        for project in projects
+            li #{project.name} - deadline: #{project.deadline}

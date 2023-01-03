@@ -9,23 +9,18 @@ public class    UserDataProvider {
      * adds new user to database
      * @param con Connection to database
      * @param name name of inserted user as String
-     * @return inserted UserAccount
+     * @return inserted UserAccount or null if user already exists
      * @throws SQLIntegrityConstraintViolationException when user already exists
      */
     public static UserAccount insertUser(Connection con, String name) throws SQLIntegrityConstraintViolationException {
         int totalPoints = 0; //new users don't have points yet
 
         if(con!=null){
-            try {
+            if(selectUser(con, name)==null){
                 DBConnection.insert(con, "INSERT INTO useraccount(name,totalpoints) VALUES('"+ name +"',"+ totalPoints +")");
                 return UserDataProvider.selectUser(con, name);
-            } catch (SQLIntegrityConstraintViolationException e) {
-                //thrown when user already exists
-                throw e;
             }
-            //return null;
         }
-
         return null;
     }
 
@@ -48,30 +43,6 @@ public class    UserDataProvider {
                         );
                     }
                 }
-
-            }catch (SQLException e){
-                e.printStackTrace();
-            }
-        }
-
-        return null;
-    }
-    
-    public static List<UserAccount> selectAllUsers(Connection con){
-        List<UserAccount> listOfUsers = new ArrayList<>();
-        if(con!=null){
-            ResultSet rs = DBConnection.select(con, "SELECT * FROM useraccount");
-            try{
-                if(rs!=null){
-                    while (rs.next()){
-                        listOfUsers.add(new UserAccount(
-                                rs.getInt("userID"),
-                                rs.getString("name"),
-                                rs.getInt("totalpoints")
-                        ));
-                    }
-                }
-                return listOfUsers;
 
             }catch (SQLException e){
                 e.printStackTrace();
