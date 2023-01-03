@@ -71,6 +71,7 @@ public class ProjectDataProvider {
             return DBConnection.delete(con, "DELETE FROM projects WHERE projectID = '"+ projectID + "'");
         }
         return false;
+    }
 
     /**
      * select all projects of specific user
