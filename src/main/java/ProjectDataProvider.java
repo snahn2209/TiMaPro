@@ -1,25 +1,29 @@
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProjectDataProvider {
 
-
     /**
      * insert the project
-     * @param con Connection to DB
-     * @param name Name of Project
+     * 
+     * @param con      Connection to DB
+     * @param name     Name of Project
      * @param deadline Deadline of Project
      * @return inserted Project
      */
-    public static Project insertProject(Connection con, String name, Date deadline, int[] memberIDs) throws SQLIntegrityConstraintViolationException {
+    public static Project insertProject(Connection con, String name, Date deadline, int[] memberIDs)
+            throws SQLIntegrityConstraintViolationException {
         if (con != null) {
-            ResultSet key = DBConnection.insert(con, "INSERT INTO projects(name,deadline) VALUES('" + name + "','"+ deadline +"')");
+            ResultSet key = DBConnection.insert(con,
+                    "INSERT INTO projects(name,deadline) VALUES('" + name + "','" + deadline + "')");
             try {
-                if(key.next()) {
+                if (key.next()) {
                     int projectID = key.getInt(1);
                     Project insertedProject = ProjectDataProvider.selectProject(con, projectID);
-                    for(int i = 0; i<memberIDs.length; i++){
-                        DBConnection.insert(con, "INSERT INTO projectuser(projectID, userID, userpoints) VALUES("+insertedProject.getID()+","+memberIDs[i]+", 0)");
+                    for (int i = 0; i < memberIDs.length; i++) {
+                        DBConnection.insert(con, "INSERT INTO projectuser(projectID, userID, userpoints) VALUES("
+                                + insertedProject.getID() + "," + memberIDs[i] + ", 0)");
                     }
                     return insertedProject;
                 }
@@ -30,11 +34,10 @@ public class ProjectDataProvider {
         return null;
     }
 
-
-
     /**
      * select the project
-     * @param con Connection to DB
+     * 
+     * @param con       Connection to DB
      * @param projectID ID of Project
      * @return selected Project
      */
@@ -43,12 +46,11 @@ public class ProjectDataProvider {
             ResultSet rs = DBConnection.select(con, "SELECT * FROM projects WHERE projectID='" + projectID + "'");
             try {
                 if (rs != null) {
-                    if(rs.next()) {
+                    if (rs.next()) {
                         return new Project(
                                 rs.getInt("projectID"),
                                 rs.getString("name"),
-                                rs.getDate("deadline")
-                        );
+                                rs.getDate("deadline"));
                     }
                 }
             } catch (SQLException e) {
@@ -69,5 +71,40 @@ public class ProjectDataProvider {
             return DBConnection.delete(con, "DELETE FROM projects WHERE projectID = '"+ projectID + "'");
         }
         return false;
+
+    /**
+     * select all projects of specific user
+     * 
+     * @param con      Connection to dababase
+     * @param userName
+     * @return list of projects of this user
+     */
+    // TODO: test
+    public static List<Project> selectAllProjectsOfUser(Connection con, String userName) {
+        if (con != null && userName != null) {
+            List<Project> listOfProjects = new ArrayList<>();
+            ResultSet rs = DBConnection.select(con,
+                    "select projects.projectID, projects.name, projects.deadline ,projectuser.userID " +
+                            "from TMproject.projectuser " +
+                            "inner join TMproject.projects on projectuser.projectid = projects.projectid " +
+                            "inner join TMproject.useraccount on projectuser.userid = useraccount. userid " +
+                            "where useraccount.name='" + userName + "';");
+
+            try {
+                if (rs != null) {
+                    while (rs.next()) {
+                        listOfProjects.add(new Project(
+                                rs.getInt("projectID"),
+                                rs.getString("name"),
+                                rs.getDate("deadline")));
+                    }
+                    return listOfProjects;
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 }

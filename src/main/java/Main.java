@@ -1,18 +1,20 @@
+import spark.ModelAndView;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static spark.Spark.*;
+import spark.template.jade.JadeTemplateEngine;
 
 public class Main {
     public static void main(String[] args) throws SQLIntegrityConstraintViolationException {
 
-        /*
-        Connection con = DBConnection.getConnection();
+        UserController userController = new UserController();
+        ProjectController projectController = new ProjectController();
 
-        UserDataProvider.insertUser(con, "newUser");
-        ProjectDataProvider.insertProject(con, "Test-Project",Date.valueOf("2022-05-04"),new int[]{1,2,7});
-
-        DBConnection.disconnect(con);
-         */
     }
 }

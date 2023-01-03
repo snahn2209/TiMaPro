@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d9ad9c8-9224-4636-a973-908799fc768d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/LoginForm.jade" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/LoginForm.jade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/RegisterForm.jade" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/RegisterForm.jade" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -47,10 +48,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Bildverarbeitung/BV5_Duenow_Sotai" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -63,7 +66,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProjectDataProviderTest.deleteProject">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="ProjectPoints" />
@@ -71,41 +74,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProjectDataProviderTest.deleteProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProjectPoints" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ProjectDataProviderTest" />
-      <option name="METHOD_NAME" value="deleteProject" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProjectDataProviderTest.insertProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProjectPoints" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ProjectDataProviderTest" />
-      <option name="METHOD_NAME" value="insertProject" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TaskDataProviderTest.deleteTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TaskDataProviderTest.insertTaskThatDoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProjectPoints" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TaskDataProviderTest" />
-      <option name="METHOD_NAME" value="deleteTask" />
+      <option name="METHOD_NAME" value="insertTaskThatDoesNotExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserDataProviderTest.deleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserDataProviderTest.insertUserThatDoesntExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProjectPoints" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
-      <option name="METHOD_NAME" value="deleteUser" />
+      <option name="METHOD_NAME" value="insertUserThatDoesntExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserDataProviderTest.selectUserThatDoesntExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="METHOD_NAME" value="selectUserThatDoesntExists" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserDataProviderTest.selectUserThatExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
+      <option name="METHOD_NAME" value="selectUserThatExists" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -113,11 +116,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProjectDataProviderTest.deleteProject" />
-        <item itemvalue="JUnit.UserDataProviderTest.deleteUser" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.ProjectDataProviderTest.insertProject" />
-        <item itemvalue="JUnit.TaskDataProviderTest.deleteTask" />
+        <item itemvalue="JUnit.TaskDataProviderTest.insertTaskThatDoesNotExist" />
+        <item itemvalue="JUnit.UserDataProviderTest.insertUserThatDoesntExist" />
+        <item itemvalue="JUnit.UserDataProviderTest.selectUserThatDoesntExists" />
+        <item itemvalue="JUnit.UserDataProviderTest.selectUserThatExists" />
       </list>
     </recent_temporary>
   </component>
