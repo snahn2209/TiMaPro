@@ -47,10 +47,12 @@ public class ProjectDataProvider {
             try {
                 if (rs != null) {
                     if (rs.next()) {
-                        return new Project(
-                                rs.getInt("projectID"),
-                                rs.getString("name"),
-                                rs.getDate("deadline"));
+                        Project.ProjectBuilder builder = new Project.ProjectBuilder();
+                        Project newProject = builder.setID(rs.getInt("projectID")).
+                                setName(rs.getString("name")).
+                                setDeadline(rs.getDate("deadline")).
+                                createProject();
+                        return newProject;
                     }
                 }
             } catch (SQLException e) {
@@ -94,10 +96,12 @@ public class ProjectDataProvider {
             try {
                 if (rs != null) {
                     while (rs.next()) {
-                        listOfProjects.add(new Project(
-                                rs.getInt("projectID"),
-                                rs.getString("name"),
-                                rs.getDate("deadline")));
+                        Project.ProjectBuilder builder = new Project.ProjectBuilder();
+                        Project newProject = builder.setID(rs.getInt("projectID")).
+                                                    setName(rs.getString("name")).
+                                                    setDeadline(rs.getDate("deadline")).
+                                                    createProject();
+                        listOfProjects.add(newProject);
                     }
                     return listOfProjects;
                 }

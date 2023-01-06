@@ -6,7 +6,7 @@ public class Project {
     private String name;
     private Date deadline;
 
-    public Project(int ID, String name, Date deadline) {
+    private Project(int ID, String name, Date deadline) {
         this.ID = ID;
         this.name = name;
         this.deadline = deadline;
@@ -34,6 +34,32 @@ public class Project {
 
     public void setDeadline(Date deadline) {
         this.deadline = deadline;
+    }
+
+    public static class ProjectBuilder{
+        private int ID;
+        private String name;
+        private Date deadline;
+
+
+        public ProjectBuilder setID (int ID) {
+            this.ID = ID;
+            return this;
+        };
+
+        public ProjectBuilder setName (String name) {
+            this.name = name;
+            return this;
+        };
+
+        public ProjectBuilder setDeadline (Date deadline) {
+            this.deadline = deadline;
+            return this;
+        };
+
+        public Project createProject(){
+            return new Project(ID, name, deadline);
+        }
     }
 
     @Override
