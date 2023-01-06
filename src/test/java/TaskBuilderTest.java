@@ -23,7 +23,7 @@ public class TaskBuilderTest {
         assertAll(
                 () -> assertEquals(7,newTask.getId()),
                 () -> assertEquals("Daedalus", newTask.getName()),
-                () -> assertEquals("2023-07-07",newTask.getDeadline()),
+                () -> assertEquals(Date.valueOf("2023-07-07"),newTask.getDeadline()),
                 () -> assertEquals(6,newTask.getTimeEstimation()),
                 () -> assertEquals(5,newTask.getPriority()),
                 () -> assertEquals(false,newTask.isDone()),

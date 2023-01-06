@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e663a56b-5adb-4b4a-a96a-9a65653147b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/TaskBuilderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TaskBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskBuilderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Task$TaskBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Task$TaskBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Task.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TaskDataProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TaskDataProvider.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,16 +157,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/TaskBuilderTest.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
