@@ -1,18 +1,19 @@
 import java.util.Date;
 
 public class Task {
-        private int id;
-        private String name;
-        private Date deadline;
-        private double timeEstimation; //in hours
-        private int priority; //1-10
-        private boolean done;
-        private Date gotDoneDate;
-        private int maxPoints;
-        private int responsiblePersonId;
-        private int project;
+    private int id;
+    private String name;
+    private Date deadline;
+    private double timeEstimation; //in hours
+    private int priority; //1-10
+    private boolean done;
+    private Date gotDoneDate;
+    private int maxPoints;
+    private int responsiblePersonId;
+    private int project;
 
-    private Task() {
+
+    public Task(int id, String name, Date deadline, double timeEstimation, int priority, boolean done, Date gotDoneDate, int maxPoints, int responsiblePersonId, int project) {
         this.id = id;
         this.name = name;
         this.deadline = deadline;
@@ -25,7 +26,7 @@ public class Task {
         this.project = project;
     }
 
-    private Task(int id, String name, Date deadline, double timeEstimation, int priority, boolean done, Date gotDoneDate, int maxPoints) {
+    /*private Task(int id, String name, Date deadline, double timeEstimation, int priority, boolean done, Date gotDoneDate, int maxPoints) {
         this.id = id;
         this.name = name;
         this.deadline = deadline;
@@ -34,7 +35,7 @@ public class Task {
         this.done = done;
         this.gotDoneDate = gotDoneDate;
         this.maxPoints = maxPoints;
-    }
+    }*/
 
     public Task(double timeEstimation) {
         this.timeEstimation = timeEstimation;
