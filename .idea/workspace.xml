@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e663a56b-5adb-4b4a-a96a-9a65653147b4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ProjectDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProjectDataProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TaskBuilderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Task.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TaskDataProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TaskDataProvider.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,10 +69,20 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.TaskBuilderTest.createTaskTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="ProjectPoints" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TaskBuilderTest.createTaskTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="time-management-challenge" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TaskBuilderTest" />
+      <option name="METHOD_NAME" value="createTaskTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -102,30 +117,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserDataProviderTest.selectUserThatExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProjectPoints" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
-      <option name="METHOD_NAME" value="selectUserThatExists" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TaskBuilderTest.createTaskTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TaskDataProviderTest.insertTaskThatDoesNotExist" />
         <item itemvalue="JUnit.UserDataProviderTest.insertUserThatDoesntExist" />
         <item itemvalue="JUnit.UserDataProviderTest.selectUserThatDoesntExists" />
-        <item itemvalue="JUnit.UserDataProviderTest.selectUserThatExists" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0d9ad9c8-9224-4636-a973-908799fc768d" name="Changes" comment="" />
+      <changelist id="e663a56b-5adb-4b4a-a96a-9a65653147b4" name="Changes" comment="" />
       <created>1670363900310</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -154,5 +159,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/TaskBuilderTest.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

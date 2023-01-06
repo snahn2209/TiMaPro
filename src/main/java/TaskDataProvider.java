@@ -52,18 +52,21 @@ public class TaskDataProvider {
             try {
                 if (rs != null) {
                     if (rs.next()) {
-                        return new Task(
-                                rs.getInt("taskID"),
-                                rs.getString("name"),
-                                rs.getDate("deadline"),
-                                rs.getDouble("timeestimation"),
-                                rs.getInt("prio"),
-                                rs.getBoolean("done"),
-                                rs.getDate("gotdonedate"),
-                                rs.getInt("maxpoints")
+                        Task.TaskBuilder builder= new Task.TaskBuilder();
+                        Task newTask = builder.setId(rs.getInt("taskId")).
+                                setName(rs.getString("name")).
+                                setDeadline(rs.getDate("deadline")).
+                                setTimeEstimation(rs.getInt("timeEstimation")).
+                                setPriority(rs.getInt("priority")).
+                                setDone(rs.getBoolean("done")).
+                                setMaxPoints(rs.getInt("maxPoints")).
+                                setResponsiblePersonId(rs.getInt("responsiblePersonId")).
+                                setProject(rs.getInt("project")).
+                                createTask();
+                        return newTask;
                         // TODO get responsible person by id
                         // TODO get project by id
-                        );
+
                     }
                 }
             } catch (SQLException e) {
