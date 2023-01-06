@@ -2,6 +2,13 @@
 Group-Project-Manager challenging all teammates to win the productivity challenge
 
 # MySQL localhost database
+
+- host = localhost 
+- port = 3306 
+- database = TMproject 
+- username = root 
+- password = TMProject
+
 Schema: tmproject
 ````sql
 CREATE SCHEMA `tmproject`;
