@@ -1,19 +1,19 @@
-import java.sql.Timestamp;
 import java.util.Date;
 
 public class Task {
-        private int id;
-        private String name;
-        private Date deadline;
-        private double timeEstimation; //in hours
-        private int priority; //1-10
-        private boolean done;
-        private Date gotDoneDate;
-        private int maxPoints;
-        private UserAccount responsiblePerson;
-        private Project project;
+    private int id;
+    private String name;
+    private Date deadline;
+    private double timeEstimation; //in hours
+    private int priority; //1-10
+    private boolean done;
+    private Date gotDoneDate;
+    private int maxPoints;
+    private int responsiblePersonId;
+    private int project;
 
-    public Task(int id, String name, Date deadline, double timeEstimation, int priority, boolean done, Date gotDoneDate, int maxPoints, UserAccount responsiblePerson, Project project) {
+
+    public Task(int id, String name, Date deadline, double timeEstimation, int priority, boolean done, Date gotDoneDate, int maxPoints, int responsiblePersonId, int project) {
         this.id = id;
         this.name = name;
         this.deadline = deadline;
@@ -22,11 +22,11 @@ public class Task {
         this.done = done;
         this.gotDoneDate = gotDoneDate;
         this.maxPoints = maxPoints;
-        this.responsiblePerson = responsiblePerson;
+        this.responsiblePersonId = responsiblePersonId;
         this.project = project;
     }
 
-    public Task(int id, String name, Date deadline, double timeEstimation, int priority, boolean done, Date gotDoneDate, int maxPoints) {
+    /*private Task(int id, String name, Date deadline, double timeEstimation, int priority, boolean done, Date gotDoneDate, int maxPoints) {
         this.id = id;
         this.name = name;
         this.deadline = deadline;
@@ -35,7 +35,7 @@ public class Task {
         this.done = done;
         this.gotDoneDate = gotDoneDate;
         this.maxPoints = maxPoints;
-    }
+    }*/
 
     public Task(double timeEstimation) {
         this.timeEstimation = timeEstimation;
@@ -105,22 +105,87 @@ public class Task {
         this.maxPoints = maxPoints;
     }
 
-    public UserAccount getResponsiblePerson() {
-        return responsiblePerson;
+    public int getResponsiblePersonId() {
+        return responsiblePersonId;
     }
 
-    public void setResponsiblePerson(UserAccount responsiblePerson) {
-        this.responsiblePerson = responsiblePerson;
+    public void setResponsiblePersonId(int responsiblePersonId) {
+        this.responsiblePersonId = responsiblePersonId;
     }
 
-    public Project getProject() {
+    public int getProject() {
         return project;
     }
 
-    public void setProject(Project project) {
+    public void setProject(int project) {
         this.project = project;
     }
 
+
+    public static class TaskBuilder{
+        private int id;
+        private String name;
+        private Date deadline;
+        private double timeEstimation; //in hours
+        private int priority; //1-10
+        private boolean done;
+        private Date gotDoneDate;
+        private int maxPoints;
+        private int responsiblePersonId;
+        private int project;
+
+        public TaskBuilder setId (int id ){
+            this.id = id;
+            return this;
+        }
+
+        public TaskBuilder setName (String name){
+            this.name = name;
+            return this;
+        }
+
+        public TaskBuilder setDeadline (Date deadline){
+            this.deadline = deadline;
+            return this;
+        }
+
+        public TaskBuilder setTimeEstimation (double timeEstimation){
+            this.timeEstimation = timeEstimation;
+            return this;
+        }
+
+        public TaskBuilder setPriority (int priority){
+            this.priority = priority;
+            return this;
+        }
+
+        public TaskBuilder setDone (boolean done){
+            this.done = done;
+            return this;
+        }
+
+
+        public TaskBuilder setMaxPoints (int maxPoints){
+            this.maxPoints = maxPoints;
+            return this;
+        }
+
+        public TaskBuilder setResponsiblePersonId (int responsiblePersonId){
+            this.responsiblePersonId = responsiblePersonId;
+            return this;
+        }
+
+        public TaskBuilder setProject (int project){
+            this.project = project;
+            return this;
+        }
+
+        public Task createTask(){
+            return new Task(id, name, deadline,timeEstimation,priority,done,gotDoneDate,maxPoints,responsiblePersonId,project);
+
+
+        }
+    }
     @Override
     public String toString() {return "taskId: " +id+ " | name: " + name + " | deadline: "+deadline; }
 
@@ -132,4 +197,6 @@ public class Task {
 
         return maxPoints;
     }
+
+
 }
