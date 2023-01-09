@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,6 +44,24 @@ class TaskDataProviderTest {
         boolean executedSuccessfully = TaskDataProvider.deleteTask(con, 7);
         assertTrue(executedSuccessfully);
         DBConnection.disconnect(con);
+    }
+
+    @Test
+    void selectAllTasksOfProject(){
+        int testProjectID = 1;
+        Connection con = DBConnection.getConnection();
+        List<Task> tasks = TaskDataProvider.selectAllTasksOfProject(con, testProjectID);
+        DBConnection.disconnect(con);
+
+        boolean correctness = true;
+        for(Task task : tasks){
+            if(task.getProject()!=testProjectID){
+                correctness = false;
+                break;
+            }
+        }
+
+        assertTrue(correctness);
     }
 
 }
