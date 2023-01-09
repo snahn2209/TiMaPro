@@ -4,9 +4,8 @@ import spark.template.jade.JadeTemplateEngine;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 import static spark.Spark.*;
 
 
@@ -51,6 +50,25 @@ public class ProjectController {
             }
 
             ModelAndView modelAndView = new ModelAndView(model, "ProjectsDashboard");
+            return modelAndView;
+        }, new JadeTemplateEngine());
+
+        //http://localhost:4567/TMProject/Project?id=1
+        get("/TMProject/Project", (req, res) -> {
+
+            int projectID = Integer.parseInt(req.queryParams("id"));
+
+            Map<String, Object> model = new HashMap<>();
+
+            Connection con = DBConnection.getConnection();
+            Project sectedProject = ProjectDataProvider.selectProject(con, projectID);
+            List<Task> tasks = TaskDataProvider.selectAllTasksOfProject(con, projectID);
+            DBConnection.disconnect(con);
+
+            model.put("project", sectedProject);
+            model.put("tasks", tasks);
+
+            ModelAndView modelAndView = new ModelAndView(model, "ProjectOverview");
             return modelAndView;
         }, new JadeTemplateEngine());
 

@@ -77,12 +77,11 @@ public class ProjectDataProvider {
 
     /**
      * select all projects of specific user
-     * 
+     *
      * @param con      Connection to dababase
      * @param userName
      * @return list of projects of this user
      */
-    // TODO: test
     public static List<Project> selectAllProjectsOfUser(Connection con, String userName) {
         if (con != null && userName != null) {
             List<Project> listOfProjects = new ArrayList<>();

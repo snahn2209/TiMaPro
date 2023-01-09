@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e663a56b-5adb-4b4a-a96a-9a65653147b4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/ProjectOverview.jade" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ProjectDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProjectDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ProjectsDashboard.jade" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ProjectsDashboard.jade" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +69,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProjectDataProviderTest.selectAllProjectsOfUser">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="ProjectPoints" />
@@ -115,8 +119,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProjectDataProviderTest.selectAllProjectsOfUser" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ProjectDataProviderTest.selectAllProjectsOfUser" />
         <item itemvalue="JUnit.TaskDataProviderTest.insertTaskThatDoesNotExist" />
         <item itemvalue="JUnit.UserDataProviderTest.insertUserThatDoesntExist" />
         <item itemvalue="JUnit.UserDataProviderTest.selectUserThatDoesntExists" />
@@ -140,6 +144,8 @@
       <workItem from="1670614500668" duration="22027000" />
       <workItem from="1670797352680" duration="13176000" />
       <workItem from="1673008279271" duration="6141000" />
+      <workItem from="1673110177444" duration="539000" />
+      <workItem from="1673263036907" duration="5957000" />
     </task>
     <servers />
   </component>
@@ -156,5 +162,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ProjectController.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -8,7 +8,10 @@ html(lang='en')
     p username:  #{name}
     p earned points: #{totalPoints}
     h1 Projects Dashboard
-    a(href='...') + new project
+
     ul
         for project in projects
-            li #{project.name} - deadline: #{project.deadline}
+            li
+                a(href='/TMProject/Project?id='+project.ID) #{project.name} - deadline: #{project.deadline}
+        li
+            a(href='...') + new project
