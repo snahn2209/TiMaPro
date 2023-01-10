@@ -99,7 +99,6 @@ public class TaskDataProvider {
      * @param projectID uinique ID of project
      * @return List of Tasks
      */
-    //TODO: test
     public static List<Task> selectAllTasksOfProject(Connection con, int projectID) {
         if(con!=null){
             List<Task> listOfTasks = new ArrayList<>();
