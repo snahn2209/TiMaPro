@@ -13,7 +13,7 @@ public class Task {
     private int project;
 
 
-    public Task(int id, String name, Date deadline, double timeEstimation, int priority, boolean done, Date gotDoneDate, int maxPoints, int responsiblePersonId, int project) {
+    private Task(int id, String name, Date deadline, double timeEstimation, int priority, boolean done, Date gotDoneDate, int maxPoints, int responsiblePersonId, int project) {
         this.id = id;
         this.name = name;
         this.deadline = deadline;

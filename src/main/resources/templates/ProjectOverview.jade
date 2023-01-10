@@ -1,0 +1,14 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title TMProject
+  body
+    h1 #{project.name}
+    p deadline: #{project.deadline}
+    h3 Tasks
+    ul
+        for task in tasks
+           li #{task.name} - deadline:#{task.deadline} - prio:#{task.priority} - points:#{task.maxPoints}
+        li
+            a(href='...') + new task

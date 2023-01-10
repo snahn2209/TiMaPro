@@ -1,4 +1,6 @@
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TaskDataProvider {
 
@@ -89,5 +91,43 @@ public class TaskDataProvider {
         }
         return false;
     }
-    // TODO selectAllTasksOfUserInProject()
+
+
+    /**
+     * selects all tasks which are part of specific project
+     * @param con Connection to DB
+     * @param projectID uinique ID of project
+     * @return List of Tasks
+     */
+    public static List<Task> selectAllTasksOfProject(Connection con, int projectID) {
+        if(con!=null){
+            List<Task> listOfTasks = new ArrayList<>();
+            ResultSet rs = DBConnection.select(con, "SELECT * FROM TMproject.tasks WHERE projectid = "+ projectID +";");
+
+            try{
+                if(rs != null){
+                    while (rs.next()){
+                        Task.TaskBuilder builder = new Task.TaskBuilder();
+                        Task newTask = builder.
+                                setId(rs.getInt("taskID")).
+                                setName(rs.getString("name")).
+                                setDeadline(rs.getDate("deadline")).
+                                setTimeEstimation(rs.getDouble("timeestimation")).
+                                setPriority(rs.getInt("prio")).
+                                setDone(rs.getBoolean("done")).
+                                setMaxPoints(rs.getInt("maxpoints")).
+                                setResponsiblePersonId(rs.getInt("responsibleuserid")).
+                                setProject(rs.getInt("projectid")).
+                                createTask();
+
+                        listOfTasks.add(newTask);
+                    }
+                    return listOfTasks;
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
 }
