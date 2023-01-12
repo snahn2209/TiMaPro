@@ -72,5 +72,17 @@ public class ProjectController {
             return modelAndView;
         }, new JadeTemplateEngine());
 
+        //http://localhost:4567/TMProject/AddProject?user=Pia
+        get("/TMProject/AddProject", (req, res) -> {
+
+            String username = req.queryParams("user");
+            Map<String, Object> model = new HashMap<>();
+            model.put("username", username);
+            ModelAndView modelAndView = new ModelAndView(model, "AddProjectForm");
+            return modelAndView;
+        }, new JadeTemplateEngine());
+
+
+
     }
 }
