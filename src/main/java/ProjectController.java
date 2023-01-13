@@ -63,6 +63,7 @@ public class ProjectController {
             Connection con = DBConnection.getConnection();
             Project sectedProject = ProjectDataProvider.selectProject(con, projectID);
             List<Task> tasks = TaskDataProvider.selectAllTasksOfProject(con, projectID);
+            //List<UserAccount> members = UserDataProvider.selectAllUsersOfProject(con, projectID);
             DBConnection.disconnect(con);
 
             model.put("project", sectedProject);
