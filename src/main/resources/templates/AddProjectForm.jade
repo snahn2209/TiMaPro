@@ -4,23 +4,23 @@ html(lang='en')
         meta(charset='UTF-8')
         title TMProject
     body
-        a(href='/TMProject/Projects?username='+username) <-Dashboard
+        a(href='/TMProject/Projects?username='+username) ⬅︎ Dashboard
         h1 Add Project
-        form
+        form(method="POST", action="/TMProject/AddProject?user="+username)
             label(for="name") project name :
-            input(type='text', id="name", name="name", placeholder="new project")
+            input(type='text', id="name", name="name", placeholder="new project", required)
             br
             label(for="deadline") deadline :
-            input(type='date', id="deadline", name="deadline")
+            input(type='date', id="deadline", name="deadline", required)
 
-            p invite team members (max. you+4)
+            p invite max. 4 team members
             ul
                 li
-                    input(type="text", name="Member2", placeholder="username")
+                    input(type="text", name="member1", placeholder="username")
                 li
-                    input(type="text", name="Member3", placeholder="username")
+                    input(type="text", name="member2", placeholder="username")
                 li
-                    input(type="text", name="Member4", placeholder="username")
+                    input(type="text", name="member3", placeholder="username")
                 li
-                    input(type="text", name="Member5", placeholder="username")
+                    input(type="text", name="member4", placeholder="username")
             input(type="submit" value="submit", class="submit")

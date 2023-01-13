@@ -6,6 +6,8 @@ import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.util.*;
 
+import java.sql.Date;
+
 import static spark.Spark.*;
 
 
@@ -81,6 +83,37 @@ public class ProjectController {
             ModelAndView modelAndView = new ModelAndView(model, "AddProjectForm");
             return modelAndView;
         }, new JadeTemplateEngine());
+
+        post("/TMProject/AddProject", (req, res) -> {
+            //get current user form url
+            String username = req.queryParams("user");
+            //get values from form
+            String projectName = req.queryParams("name");
+            Date deadline = Date.valueOf(req.queryParams("deadline"));
+
+            //get list of memberIDs
+            List<String> memberNames = new ArrayList<>();
+            memberNames.add(username);
+            for (int i=1; i<5; i++){
+                if(req.queryParams("member"+i)!=null && !req.queryParams("member" + i).equals("")){
+                    memberNames.add(req.queryParams("member"+i));
+                }
+            }
+            Connection con = DBConnection.getConnection();
+            int[] memberIDs = new int[memberNames.size()];
+            for(int i=0; i<memberIDs.length; i++){
+                UserAccount user = UserDataProvider.selectUser(con, memberNames.get(i));
+                memberIDs[i]=user.getID();
+            }
+
+            //insert Project into db
+            Project newProject = ProjectDataProvider.insertProject(con, projectName,deadline, memberIDs);
+
+            DBConnection.disconnect(con);
+
+            res.redirect("/TMProject/Projects?username="+username);
+            return null;
+        });
 
 
 

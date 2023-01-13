@@ -5,11 +5,12 @@ import java.util.List;
 public class ProjectDataProvider {
 
     /**
-     * insert the project
-     * 
+     * inserts the project into the projects table of database
+     * inserts projectID and userID into the projectuser table of database
      * @param con      Connection to DB
      * @param name     Name of Project
      * @param deadline Deadline of Project
+     * @param memberIDs Array of userIDs of members of inserted project
      * @return inserted Project
      */
     public static Project insertProject(Connection con, String name, Date deadline, int[] memberIDs)
