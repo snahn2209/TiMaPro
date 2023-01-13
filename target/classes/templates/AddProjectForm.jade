@@ -4,9 +4,9 @@ html(lang='en')
         meta(charset='UTF-8')
         title TMProject
     body
-        a(href='/TMProject/Projects?username='+username) ⬅︎ Dashboard
+        a(href='/TMProject/Projects?username='+encodedUsername) ⬅︎ cancel
         h1 Add Project
-        form(method="POST", action="/TMProject/AddProject?user="+username)
+        form(method="POST", action="/TMProject/AddProject?user="+encodedUsername)
             label(for="name") project name :
             input(type='text', id="name", name="name", placeholder="new project", required)
             br

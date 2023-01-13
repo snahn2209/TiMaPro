@@ -23,10 +23,10 @@ public class ProjectController {
 
             //get user name from url
             String userName = req.queryParams("username");
-            String encodedUserName = URLEncoder.encode(userName, StandardCharsets.UTF_8.toString());
+            String encodedUsername = URLEncoder.encode(userName, StandardCharsets.UTF_8.toString());
 
             Map<String, Object> model = new HashMap<>();
-            model.put("encodedUsername", encodedUserName);
+            model.put("encodedUsername", encodedUsername);
 
             if(userName!=null){
                 Connection con = DBConnection.getConnection();
@@ -59,13 +59,21 @@ public class ProjectController {
             return modelAndView;
         }, new JadeTemplateEngine());
 
+
         //Project Overview
-        //http://localhost:4567/TMProject/Project?id=1
+        //http://localhost:4567/TMProject/Project?id=1&user=Pia
         get("/TMProject/Project", (req, res) -> {
 
             int projectID = Integer.parseInt(req.queryParams("id"));
+            //decode url
+            URLDecoder.decode(req.url(), StandardCharsets.UTF_8.toString());
+            //get user name from url
+            String userName = req.queryParams("user");
+            String encodedUsername = URLEncoder.encode(userName, StandardCharsets.UTF_8.toString());
 
             Map<String, Object> model = new HashMap<>();
+            model.put("username", userName);
+            model.put("encodedUsername", encodedUsername);
 
             Connection con = DBConnection.getConnection();
             Project sectedProject = ProjectDataProvider.selectProject(con, projectID);
@@ -79,6 +87,7 @@ public class ProjectController {
             return modelAndView;
         }, new JadeTemplateEngine());
 
+
         //Add Project Form
         //http://localhost:4567/TMProject/AddProject?user=Pia
         get("/TMProject/AddProject", (req, res) -> {
@@ -87,11 +96,11 @@ public class ProjectController {
 
             //get user name from url
             String username = req.queryParams("user");
-            String encodedUserName = URLEncoder.encode(username, StandardCharsets.UTF_8.toString());
+            String encodedUsername = URLEncoder.encode(username, StandardCharsets.UTF_8.toString());
 
             Map<String, Object> model = new HashMap<>();
             model.put("username", username);
-            model.put("encodedUsername", encodedUserName);
+            model.put("encodedUsername", encodedUsername);
 
             ModelAndView modelAndView = new ModelAndView(model, "AddProjectForm");
             return modelAndView;
@@ -103,7 +112,7 @@ public class ProjectController {
 
             //get current user form url
             String username = req.queryParams("user");
-            String encodedUserName = URLEncoder.encode(username, StandardCharsets.UTF_8.toString());
+            String encodedUsername = URLEncoder.encode(username, StandardCharsets.UTF_8.toString());
 
             //get values from form
             String projectName = req.queryParams("name");
@@ -129,7 +138,7 @@ public class ProjectController {
 
             DBConnection.disconnect(con);
 
-            res.redirect("/TMProject/Projects?username="+encodedUserName);
+            res.redirect("/TMProject/Projects?username="+encodedUsername);
             return null;
         });
 
