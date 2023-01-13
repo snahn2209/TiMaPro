@@ -6,6 +6,12 @@ html(lang='en')
   body
     h1 #{project.name}
     p deadline: #{project.deadline}
+    h4 Project Ranking
+    ol
+        for member in members
+            li #{member.name} - #{member.totalPoints} points
+
+    br
     h3 Tasks
     ul
         for task in tasks

@@ -107,6 +107,8 @@ public class    UserDataProvider {
                     while (rs.next()) {
                         UserAccount memberOfProject = UserDataProvider.selectUserByID(con, rs.getInt("userID"));
                         if(memberOfProject!=null){
+                            //return only points earned in this project
+                            memberOfProject.setTotalPoints(rs.getInt("userpoints"));
                             members.add(memberOfProject);
                         }
                     }
