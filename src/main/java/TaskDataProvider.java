@@ -55,15 +55,15 @@ public class TaskDataProvider {
                 if (rs != null) {
                     if (rs.next()) {
                         Task.TaskBuilder builder= new Task.TaskBuilder();
-                        Task newTask = builder.setId(rs.getInt("taskId")).
+                        Task newTask = builder.setId(rs.getInt("taskID")).
                                 setName(rs.getString("name")).
                                 setDeadline(rs.getDate("deadline")).
-                                setTimeEstimation(rs.getInt("timeEstimation")).
-                                setPriority(rs.getInt("priority")).
+                                setTimeEstimation(rs.getInt("timeestimation")).
+                                setPriority(rs.getInt("prio")).
                                 setDone(rs.getBoolean("done")).
                                 setMaxPoints(rs.getInt("maxPoints")).
-                                setResponsiblePersonId(rs.getInt("responsiblePersonId")).
-                                setProject(rs.getInt("project")).
+                                setResponsiblePersonId(rs.getInt("responsibleuserid")).
+                                setProject(rs.getInt("projectid")).
                                 createTask();
                         return newTask;
                         // TODO get responsible person by id

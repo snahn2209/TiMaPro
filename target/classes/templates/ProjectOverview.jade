@@ -10,6 +10,7 @@ html(lang='en')
     h3 Tasks
     ul
         for task in tasks
-           li #{task.name} - deadline:#{task.deadline} - prio:#{task.priority} - points:#{task.maxPoints}
+           li
+            a(href='/TMProject/Task?id='+task.id) #{task.name} - deadline:#{task.deadline} - prio:#{task.priority} - points:#{task.maxPoints}
         li
             a(href='...') + new task

@@ -1,0 +1,14 @@
+doctype html
+html(lang='en')
+    head
+    meta(charset='UTF-8')
+    title TMProject
+   body
+    h1 #{task.name}
+    p Deadline: #{task.deadline}
+    p Time needed: #{task.timeEstimation} hours
+    p Priority: #{task.priority}/10
+    p Maximum Points: #{task.maxPoints}
+    p ID of Responsible Person: #{task.responsiblePersonId}
+
+    input#done(type='checkbox', name='done', checked=false)
