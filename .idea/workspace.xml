@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e663a56b-5adb-4b4a-a96a-9a65653147b4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/TaskController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/TaskOverview.jade" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TaskDataProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ProjectOverview.jade" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ProjectOverview.jade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ProjectDataProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ProjectDataProviderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TaskDataProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TaskDataProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/ProjectOverview.jade" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ProjectOverview.jade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ProjectDataProviderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ProjectDataProviderTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,10 +74,20 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.TaskDataProviderTest.insertTaskThatDoesNotExist">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="ProjectPoints" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProjectDataProviderTest.insertProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectPoints" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ProjectDataProviderTest" />
+      <option name="METHOD_NAME" value="insertProject" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -103,23 +122,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserDataProviderTest.deleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProjectPoints" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UserDataProviderTest" />
-      <option name="METHOD_NAME" value="deleteUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TaskDataProviderTest.insertTaskThatDoesNotExist" />
+        <item itemvalue="JUnit.ProjectDataProviderTest.insertProject" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.UserDataProviderTest.deleteUser" />
         <item itemvalue="JUnit.TaskDataProviderTest.selectAllTasksOfProject" />
         <item itemvalue="JUnit.ProjectDataProviderTest.selectAllProjectsOfUser" />
-        <item itemvalue="JUnit.TaskDataProviderTest.insertTaskThatDoesNotExist" />
       </list>
     </recent_temporary>
   </component>
