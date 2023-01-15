@@ -19,89 +19,89 @@ html(lang='en')
           for project in projects
             li
               a(href='/TMProject/Project?id='+project.ID+'&user='+encodedUsername) #{project.name} - deadline: #{project.deadline}
-            li
-              a(href='/TMProject/AddProject?user='+encodedUsername) + new project
-    style.
-      html,
-      body {
-      min-height: 100%;
+          li
+            a(href='/TMProject/AddProject?user='+encodedUsername) + new project
+  style.
+    html,
+    body {
+    min-height: 100%;
 
-      }
-      body {
+    }
+    body {
 
-      color: white;
-      background: rgb(115, 194, 251);
-      background: linear-gradient(rgba(115, 194, 251, 1) 5%, rgba(178, 221, 233, 1) 100%);
-      }
-      nav {
-      display: flex;
-      /*align-items: center;
-      justify-content: space-between;*/
-      background-color: rgb(105, 191, 252);
-      color: #fff;
-      height: 50px;
-      width: 100%;
-      box-shadow: 1px 1px 10px rgb(100, 100, 100);
-      border-radius: 7px;
-      }
-      nav div {
-      display: flex;
-      width: 100%;
-      padding: 15px;
-      align-items: center;
-      justify-content: space-between;
-      }
-      nav div a {
-      text-decoration: none;
-      color: white;
-      }
-      nav div a:hover {
-      transition: 0.5s ease;
-      transform: scale(1.25);
-      text-shadow: 0 0 5px gray;
-      }
-      .Topic {
-      display: flex;
-      font-size: 30px;
-      justify-content: center;
-      text-shadow: 5px 5px 10px gray;
-      margin: 25px;
-      }
-      .content {
-      background-color: rgb(185, 225, 254);
-      border-radius: 10px;
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: column;
-      align-items: center;
-      height: 50vh;
-      margin-right: 200px;
-      margin-left: 200px;
-      overflow: hidden;
-      overflow-y: scroll;
-      align-content: stretch;
-      box-shadow: 1px 5px 20px -4px rgb(174, 174, 174);
-      }
-      .Liste {
-      /*background-color: aquamarine;*/
-      width: 100%;
-      margin: 5px;
-      }
-      .Liste li {
-      display: flex;
-      justify-content: center;
-      /*background-color: rgb(137, 223, 252);*/
-      box-shadow: 0 7px 10px -10px gray;
-      border-radius: 10px;
-      margin: 10px;
-      }
-      .Liste li:hover {
-      transition: 0.5s ease;
-      transform: scale(1.2);
-      text-shadow: 0 5px 5px gray;
-      }
-      .Liste a {
-      color: white;
-      text-decoration: none;
-      font-size: 35px;
-      }
+    color: white;
+    background: rgb(115, 194, 251);
+    background: linear-gradient(rgba(115, 194, 251, 1) 5%, rgba(178, 221, 233, 1) 100%);
+    }
+    nav {
+    display: flex;
+    /*align-items: center;
+    justify-content: space-between;*/
+    background-color: rgb(105, 191, 252);
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    box-shadow: 1px 1px 10px rgb(100, 100, 100);
+    border-radius: 7px;
+    }
+    nav div {
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-between;
+    }
+    nav div a {
+    text-decoration: none;
+    color: white;
+    }
+    nav div a:hover {
+    transition: 0.5s ease;
+    transform: scale(1.25);
+    text-shadow: 0 0 5px gray;
+    }
+    .Topic {
+    display: flex;
+    font-size: 30px;
+    justify-content: center;
+    text-shadow: 5px 5px 10px gray;
+    margin: 25px;
+    }
+    .content {
+    background-color: rgb(185, 225, 254);
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    margin-right: 200px;
+    margin-left: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+    align-content: stretch;
+    box-shadow: 1px 5px 20px -4px rgb(174, 174, 174);
+    }
+    .Liste {
+    /*background-color: aquamarine;*/
+    width: 100%;
+    margin: 5px;
+    }
+    .Liste li {
+    display: flex;
+    justify-content: center;
+    /*background-color: rgb(137, 223, 252);*/
+    box-shadow: 0 7px 10px -10px gray;
+    border-radius: 10px;
+    margin: 10px;
+    }
+    .Liste li:hover {
+    transition: 0.5s ease;
+    transform: scale(1.2);
+    text-shadow: 0 5px 5px gray;
+    }
+    .Liste a {
+    color: white;
+    text-decoration: none;
+    font-size: 35px;
+    }
