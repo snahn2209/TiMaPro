@@ -130,4 +130,20 @@ public class TaskDataProvider {
         }
         return null;
     }
+
+    /**
+     * changes done value of a task
+     * @param con Connection to DB
+     * @param taskID unique id of task
+     * @return updated Task
+     */
+    public static Task checkOffTask(Connection con, int taskID) {
+        if(con!=null){
+            Boolean success = DBConnection.update(con, "UPDATE TMproject.tasks SET done = NOT done WHERE taskID="+taskID+";");
+            if (success){
+                return TaskDataProvider.selectTask(con, taskID);
+            }
+        }
+        return null;
+    }
 }

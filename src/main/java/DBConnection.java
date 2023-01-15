@@ -84,6 +84,7 @@ public class DBConnection {
     }
 
     /**
+     * executes DELETE queries
      * @param con Connection to DB
      * @param qry query String
      * @return boolean: weather or not the execution was successfully
@@ -100,5 +101,21 @@ public class DBConnection {
         return false;
     }
 
-    //TODO: update()
+    /**
+     * executes UPDATE queries
+     * @param con Connection to DB
+     * @param qry query Stirn
+     * @return Updated row as a ResultSet
+     */
+    public static boolean update(Connection con, String qry){
+        try {
+            PreparedStatement stmt = con.prepareStatement(qry );
+            stmt.execute();
+            System.out.println("[UPDATE executed]");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

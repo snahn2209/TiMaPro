@@ -23,10 +23,9 @@ public class ProjectController {
 
             //get user name from url
             String userName = req.queryParams("username");
-            String encodedUsername = URLEncoder.encode(userName, StandardCharsets.UTF_8.toString());
 
             Map<String, Object> model = new HashMap<>();
-            model.put("encodedUsername", encodedUsername);
+            model.put("encodedUsername", URLEncoder.encode(userName, StandardCharsets.UTF_8.toString()));
 
             if(userName!=null){
                 Connection con = DBConnection.getConnection();
@@ -69,11 +68,10 @@ public class ProjectController {
             URLDecoder.decode(req.url(), StandardCharsets.UTF_8.toString());
             //get user name from url
             String userName = req.queryParams("user");
-            String encodedUsername = URLEncoder.encode(userName, StandardCharsets.UTF_8.toString());
 
             Map<String, Object> model = new HashMap<>();
             model.put("username", userName);
-            model.put("encodedUsername", encodedUsername);
+            model.put("encodedUsername", URLEncoder.encode(userName, StandardCharsets.UTF_8.toString()));
 
             Connection con = DBConnection.getConnection();
             Project sectedProject = ProjectDataProvider.selectProject(con, projectID);
@@ -111,11 +109,10 @@ public class ProjectController {
 
             //get user name from url
             String username = req.queryParams("user");
-            String encodedUsername = URLEncoder.encode(username, StandardCharsets.UTF_8.toString());
 
             Map<String, Object> model = new HashMap<>();
             model.put("username", username);
-            model.put("encodedUsername", encodedUsername);
+            model.put("encodedUsername", URLEncoder.encode(username, StandardCharsets.UTF_8.toString()));
 
             ModelAndView modelAndView = new ModelAndView(model, "AddProjectForm");
             return modelAndView;
