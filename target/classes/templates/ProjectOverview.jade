@@ -7,6 +7,12 @@ html(lang='en')
     a(href='/TMProject/Projects?username='+encodedUsername) ⬅︎ Dashboard
     h1 #{project.name}
     p deadline: #{project.deadline}
+    h4 Productivity Ranking
+    ol
+        for member in members
+            li #{member.name} - #{member.totalPoints} points
+
+    br
     h3 Tasks
     ul
         for task in tasks

@@ -78,10 +78,25 @@ public class ProjectController {
             Connection con = DBConnection.getConnection();
             Project sectedProject = ProjectDataProvider.selectProject(con, projectID);
             List<Task> tasks = TaskDataProvider.selectAllTasksOfProject(con, projectID);
+            List<UserAccount> members = UserDataProvider.selectAllUsersOfProject(con, projectID);
+            //sort memebers by points
+            members.sort(new Comparator<UserAccount>() {
+                @Override
+                public int compare(UserAccount o1, UserAccount o2) {
+                    if(o1.getTotalPoints() == o2.getTotalPoints()){
+                        return 0; //equal
+                    }else if(o1.getTotalPoints() > o2.getTotalPoints()){
+                        return -1;
+                    }else{
+                        return 1;
+                    }
+                }
+            });
             DBConnection.disconnect(con);
 
             model.put("project", sectedProject);
             model.put("tasks", tasks);
+            model.put("members", members);
 
             ModelAndView modelAndView = new ModelAndView(model, "ProjectOverview");
             return modelAndView;
