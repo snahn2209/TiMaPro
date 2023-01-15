@@ -121,6 +121,13 @@ public class    UserDataProvider {
         return null;
     }
 
-    //TODO: update totalpoints
-
+    public static UserAccount earnPoints(Connection con, int userID, int points){
+        if(con!=null){
+            Boolean success = DBConnection.update(con, "UPDATE TMproject.useraccount SET totalpoints=totalpoints+"+points+" WHERE userID='"+userID+"';");
+            if (success){
+                return UserDataProvider.selectUserByID(con, userID);
+            }
+        }
+        return null;
+    }
 }

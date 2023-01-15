@@ -39,16 +39,31 @@ public class TaskController {
 
             //decode url
             URLDecoder.decode(req.url(), StandardCharsets.UTF_8.toString());
-
             //get current user form url
             String username = req.queryParams("user");
             String encodedUsername = URLEncoder.encode(username, StandardCharsets.UTF_8.toString());
 
             Connection con = DBConnection.getConnection();
+
+            UserAccount currentUser = UserDataProvider.selectUser(con, username);
+            int currentUserID = currentUser.getID();
+
             //mark task as !done in db
             Task updatedTask = TaskDataProvider.checkOffTask(con, taskID);
-            //add points to projectuser table
-            //add points to total points of user
+
+            if(updatedTask!=null && updatedTask.isDone()){
+                //earning points
+                //add points to projectuser table
+                ProjectDataProvider.earnProjectPoints(con, currentUserID, updatedTask.getProject(), updatedTask.getMaxPoints());
+                //add points to total points of user
+                UserDataProvider.earnPoints(con, currentUserID, updatedTask.getMaxPoints());
+            }else if(updatedTask!=null && !updatedTask.isDone()){
+                //loosing points
+                //removing points from projectuser table
+                ProjectDataProvider.earnProjectPoints(con, currentUserID, updatedTask.getProject(), -updatedTask.getMaxPoints());
+                //removing points from users total points
+                UserDataProvider.earnPoints(con, currentUserID, -updatedTask.getMaxPoints());
+            }
             DBConnection.disconnect(con);
 
             //redirect to project overview
@@ -57,8 +72,6 @@ public class TaskController {
             }else{
                 res.redirect("/TMProject/Projects?username="+encodedUsername);
             }
-
-
             return null;
         });
     }
