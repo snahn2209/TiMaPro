@@ -52,6 +52,28 @@ public class    UserDataProvider {
         return null;
     }
 
+    public static UserAccount selectUserByID(Connection con, int userID) {
+        if(con!=null){
+            ResultSet rs = DBConnection.select(con, "SELECT * FROM useraccount WHERE userID='"+ userID +"'");
+            try{
+                if(rs!=null){
+                    while (rs.next()){
+                        return new UserAccount(
+                                rs.getInt("userID"),
+                                rs.getString("name"),
+                                rs.getInt("totalpoints")
+                        );
+                    }
+                }
+
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+
+        return null;
+    }
+
     /**
      * deletes user with specific ID
      * @param con Connection to DB
@@ -63,11 +85,40 @@ public class    UserDataProvider {
 
         if(con!=null){
             //delete user from all projects
-            DBConnection.delete(con, "DELETE FROM projectuser WHERE userID = '"+ userID + "'");
-
-            return DBConnection.delete(con, "DELETE FROM  useraccount WHERE userID = '"+ userID + "'");
+            boolean success = DBConnection.delete(con, "DELETE FROM projectuser WHERE userID = '"+ userID + "'");
+            return success;
         }
         return false;
+    }
+
+    /**
+     * returns List of UserAccounts which are members of a certain Project
+     * @param con Connection to db
+     * @param projectID unique ID of project
+     * @return List of UserAccounts
+     */
+    //TODO: test this method
+    public static List<UserAccount> selectAllUsersOfProject(Connection con, int projectID) {
+        if(con!=null ){
+            List<UserAccount> members = new ArrayList<>();
+            ResultSet rs = DBConnection.select(con, "SELECT * FROM TMproject.projectuser WHERE projectID="+projectID+";");
+            try {
+                if (rs != null) {
+                    while (rs.next()) {
+                        UserAccount memberOfProject = UserDataProvider.selectUserByID(con, rs.getInt("userID"));
+                        if(memberOfProject!=null){
+                            //return only points earned in this project
+                            memberOfProject.setTotalPoints(rs.getInt("userpoints"));
+                            members.add(memberOfProject);
+                        }
+                    }
+                    return members;
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 
     //TODO: update totalpoints

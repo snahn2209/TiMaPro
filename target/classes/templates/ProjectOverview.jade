@@ -4,11 +4,19 @@ html(lang='en')
     meta(charset='UTF-8')
     title TMProject
   body
+    a(href='/TMProject/Projects?username='+encodedUsername) ⬅︎ Dashboard
     h1 #{project.name}
     p deadline: #{project.deadline}
+    h4 Productivity Ranking
+    ol
+        for member in members
+            li #{member.name} - #{member.totalPoints} points
+
+    br
     h3 Tasks
     ul
         for task in tasks
-           li #{task.name} - deadline:#{task.deadline} - prio:#{task.priority} - points:#{task.maxPoints}
+           li
+            a(href='/TMProject/Task?id='+task.id) #{task.name} - deadline:#{task.deadline} - prio:#{task.priority} - points:#{task.maxPoints}
         li
             a(href='...') + new task

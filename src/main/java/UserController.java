@@ -51,7 +51,6 @@ public class UserController {
                 DBConnection.disconnect(con);
             }
 
-
             return null;
         });
 

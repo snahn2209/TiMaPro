@@ -15,6 +15,7 @@ public class Main {
 
         UserController userController = new UserController();
         ProjectController projectController = new ProjectController();
+        TaskController taskController = new TaskController();
 
     }
 }

@@ -16,10 +16,11 @@ html(lang='en')
         h1 Project Dashboard
       .content
         ul.Liste
-          li
-            a(href='/TMProject/Project?id='+project.ID) #{project.name} - deadline: #{project.deadline}
-          li
-            a(href='...') new project
+          for project in projects
+            li
+              a(href='/TMProject/Project?id='+project.ID+'&user='+encodedUsername) #{project.name} - deadline: #{project.deadline}
+            li
+              a(href='/TMProject/AddProject?user='+encodedUsername) + new project
     style.
 
       html,
