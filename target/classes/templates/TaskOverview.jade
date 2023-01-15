@@ -13,5 +13,5 @@ html(lang='en')
     p ID of Responsible Person: #{task.responsiblePersonId}
     form(method="POST", action="/TMProject/CheckOfTask?task="+task.id+"&user="+encodedUsername)
         label(for="done") done:
-        input(type='checkbox', id="done", name='done', checked=false)
+        input(type='checkbox', id="done", name='done', checked=task.done)
         input(type="submit" value="submit", class="submit")
