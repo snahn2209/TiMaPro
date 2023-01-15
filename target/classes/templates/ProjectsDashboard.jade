@@ -12,6 +12,6 @@ html(lang='en')
     ul
         for project in projects
             li
-                a(href='/TMProject/Project?id='+project.ID) #{project.name} - deadline: #{project.deadline}
+                a(href='/TMProject/Project?id='+project.ID+'&user='+encodedUsername) #{project.name} - deadline: #{project.deadline}
         li
-            a(href='...') + new project
+            a(href='/TMProject/AddProject?user='+encodedUsername) + new project
