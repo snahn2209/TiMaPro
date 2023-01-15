@@ -1,26 +1,130 @@
 doctype html
 html(lang='en')
-    head
-        meta(charset='UTF-8')
-        title TMProject
-    body
-        a(href='/TMProject/Projects?username='+encodedUsername) ⬅︎ cancel
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title TMProject
+  body
+    nav
+      div
+        a(href='/TMProject/Projects?username=undefined') &#x2B05;&#xFE0E; cancel
+        p user: #{name}
+    .formula
+      form(method='POST', action='/TMProject/AddProject?user=undefined')
         h1 Add Project
-        form(method="POST", action="/TMProject/AddProject?user="+encodedUsername)
-            label(for="name") project name :
-            input(type='text', id="name", name="name", placeholder="new project", required)
-            br
-            label(for="deadline") deadline :
-            input(type='date', id="deadline", name="deadline", required)
-
-            p invite max. 4 team members
-            ul
-                li
-                    input(type="text", name="member1", placeholder="username")
-                li
-                    input(type="text", name="member2", placeholder="username")
-                li
-                    input(type="text", name="member3", placeholder="username")
-                li
-                    input(type="text", name="member4", placeholder="username")
-            input(type="submit" value="submit", class="submit")
+        p.tutorial
+          em
+            | For successfully adding a new project, please fill out the forms. After submitting,
+            | you can add the tasks.
+        label(for='name') project name
+        input#name(type='text', name='name', placeholder='new project', required='')
+        br
+        label(for='deadline') deadline
+        input#deadline(type='date', name='deadline', required='')
+        p.memberInvite invite team members (max. 4 )
+        .invite
+          input(type='text', name='member1', placeholder='username')
+          input(type='text', name='member2', placeholder='username')
+          input(type='text', name='member3', placeholder='username')
+          input(type='text', name='member4', placeholder='username')
+        input.submit(type='submit', value='submit')
+  style.
+    @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+    html,
+    body {
+    min-height: 100%;
+    }
+    body {
+    font-family: "Roboto", sans-serif;
+    color: white;
+    background: rgb(115, 194, 251);
+    background: linear-gradient(rgba(115, 194, 251, 1) 5%, rgba(178, 221, 233, 1) 100%);
+    display: flex;
+    flex-flow: column;
+    }
+    nav {
+    display: flex;
+    background-color:
+    rgb(105, 191, 252);
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    box-shadow: 1px 1px 10px rgb(100, 100, 100);
+    border-radius: 7px;
+    }
+    nav div {
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-between;
+    }
+    nav div a {
+    text-decoration: none;
+    color: white;
+    }
+    nav div a:hover {
+    transition: 0.5s ease;
+    transform: scale(1.25);
+    text-shadow: 0 0 5px gray;
+    }
+    .formula {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    text-shadow: 0 1.5px 5px gray;
+    }
+    .tutorial {
+    text-align: center;
+    margin-top: -17px;
+    }
+    form {
+    width: 35vh;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(185, 225, 254);
+    box-shadow: 1px 5px 20px -4px rgb(174, 174, 174);
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    }
+    label {
+    display: flex;
+    margin: 10px;
+    font-weight: bold;
+    }
+    input {
+    width: 25vh;
+    height: 2.5vh;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    }
+    .memberInvite {
+    font-weight: bold;
+    }
+    .invite {
+    margin-top: -5px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    .submit {
+    color: white;
+    background-color: rgb(153, 212, 253);
+    width: 15vh;
+    height: 4.5vh;
+    margin: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 12px;
+    }
+    .submit:hover {
+    transition: 0.5s ease;
+    transform: scale(1.1);
+    text-shadow: 0 0 5px gray;
+    box-shadow: 1px 5px 20px -4px rgb(174, 174, 174);
+    background-color: rgb(115, 194, 251);
+    }

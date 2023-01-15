@@ -1,26 +1,32 @@
 doctype html
 html(lang='en')
-    head
-        meta(charset='UTF-8')
-        title TMProject
-    body
-        a(href='/TMProject/Projects?username='+encodedUsername) ⬅︎ cancel
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title TMProject
+  body
+    nav
+      div
+        a(href='/TMProject/Projects?username=undefined') &#x2B05;&#xFE0E; cancel
+        p user: #{name}
+    .formula
+      form(method='POST', action='/TMProject/AddProject?user=undefined')
         h1 Add Project
-        form(method="POST", action="/TMProject/AddProject?user="+encodedUsername)
-            label(for="name") project name :
-            input(type='text', id="name", name="name", placeholder="new project", required)
-            br
-            label(for="deadline") deadline :
-            input(type='date', id="deadline", name="deadline", required)
-
-            p invite max. 4 team members
-            ul
-                li
-                    input(type="text", name="member1", placeholder="username")
-                li
-                    input(type="text", name="member2", placeholder="username")
-                li
-                    input(type="text", name="member3", placeholder="username")
-                li
-                    input(type="text", name="member4", placeholder="username")
-            input(type="submit" value="submit", class="submit")
+        p.tutorial
+          em
+            | For successfully adding a new project, please fill out the forms. After submitting,
+            | you can add the tasks.
+        label(for='name') project name
+        input#name(type='text', name='name', placeholder='new project', required='')
+        br
+        label(for='deadline') deadline
+        input#deadline(type='date', name='deadline', required='')
+        p.memberInvite invite team members (max. 4 )
+        .invite
+          input(type='text', name='member1', placeholder='username')
+          input(type='text', name='member2', placeholder='username')
+          input(type='text', name='member3', placeholder='username')
+          input(type='text', name='member4', placeholder='username')
+        input.submit(type='submit', value='submit')
+  
