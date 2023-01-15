@@ -121,6 +121,7 @@ public class    UserDataProvider {
         return null;
     }
 
+    //TODO: write test
     public static UserAccount earnPoints(Connection con, int userID, int points){
         if(con!=null){
             Boolean success = DBConnection.update(con, "UPDATE TMproject.useraccount SET totalpoints=totalpoints+"+points+" WHERE userID='"+userID+"';");

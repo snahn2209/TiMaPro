@@ -13,13 +13,20 @@ import static spark.Spark.*;
 public class TaskController {
     public TaskController(){
 
-        //http://localhost:4567/TMProject/Task?id=1
+        //http://localhost:4567/TMProject/Task?id=1&user=Pia
         get("/TMProject/Task", (req, res) -> {
             URLDecoder.decode(req.url(), StandardCharsets.UTF_8.toString());
 
             int taskId = Integer.parseInt(req.queryParams("id"));
 
+            //decode url
+            URLDecoder.decode(req.url(), StandardCharsets.UTF_8.toString());
+            //get current user form url
+            String username = req.queryParams("user");
+
             Map<String, Object> model = new HashMap<>();
+            model.put("username", username);
+            model.put("encodedUsername", URLEncoder.encode(username, StandardCharsets.UTF_8.toString()));
 
             Connection con = DBConnection.getConnection();
             Task selectedTask = TaskDataProvider.selectTask(con, taskId);

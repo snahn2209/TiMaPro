@@ -113,7 +113,7 @@ public class ProjectDataProvider {
         return null;
     }
 
-    //TODO: add project points to user
+    //TODO: write test
     public static Boolean earnProjectPoints(Connection con, int userID, int projectID, int points){
 
         if(con!=null){
