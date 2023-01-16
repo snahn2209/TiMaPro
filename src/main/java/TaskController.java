@@ -42,10 +42,10 @@ public class TaskController {
         }, new JadeTemplateEngine());
 
         // addTask form
-        //http://localhost:4567/TMProject/AddTask?project=1&user=Pia
+        //http://localhost:4567/TMProject/AddTask?id=1&user=Pia
         get("/TMProject/AddTask", (req, res) -> {
             // get ProjectID from url
-            int projectID = Integer.parseInt(req.queryParams("project"));
+            int projectID = Integer.parseInt(req.queryParams("id"));
 
             // decode url
             URLDecoder.decode(req.url(), StandardCharsets.UTF_8.toString());
@@ -62,37 +62,37 @@ public class TaskController {
 
         }, new JadeTemplateEngine());
 
-        post("/TMProject/AddTAsk", (req, res) -> {
-            // decode url
-            URLDecoder.decode(req.url(), StandardCharsets.UTF_8.toString());
+        post("/TMProject/AddTask", (req, res) -> {
+            // get params from url
+            int projectID = Integer.parseInt(req.queryParams("id"));
 
-            // get current project form url
-            int projectid = Integer.parseInt(req.queryParams("id"));
+            URLDecoder.decode(req.url(), StandardCharsets.UTF_8.toString());
             String username = req.queryParams("user");
             String encodedUsername = URLEncoder.encode(username, StandardCharsets.UTF_8.toString());
 
             // get values from form
             String taskName = req.queryParams("name");
             Date deadline = Date.valueOf(req.queryParams("deadline"));
-            double timeEstimation = Double.parseDouble(req.queryParams("timeEstimation"));
+            double timeEstimation = Double.parseDouble(req.queryParams("time"));
             int prio = Integer.parseInt(req.queryParams("prio"));
-            int responsibleUserID = Integer.parseInt(req.queryParams("responsibleuserid"));
+            String responsibleUser = req.queryParams("responsiblePerson");
 
             // insertTask
-            Connection con = DBConnection.getConnection();
+            /*Connection con = DBConnection.getConnection();
             Task newTask = TaskDataProvider.insertTask(con, taskName, deadline, timeEstimation, prio, responsibleUserID,
                     projectid);
 
             DBConnection.disconnect(con);
 
             res.redirect("/TMProject/Project?id=" + projectid + "&user=" + encodedUsername);
+             */
 
             return null;
 
         });
 
         // TMProject/CheckOfTask?task="+task.id+"&user="+encodedUsername
-        post("TMProject/CheckOfTask", (req, res) -> {
+        post("/TMProject/CheckOfTask", (req, res) -> {
 
             int taskID = Integer.parseInt(req.queryParams("task"));
 

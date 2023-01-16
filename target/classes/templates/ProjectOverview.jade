@@ -31,7 +31,7 @@ html(lang='en')
                         input(type='checkbox', id="done", name='done', checked=task.done)
                         input(type="submit" value="submit", class="submit")
             li
-                a(href='/TMProject/AddTask?project='+project.ID+'&user='+encodedUsername) + new task
+                a(href='/TMProject/AddTask?id='+project.ID+'&user='+encodedUsername) + new task
     style.
       @import url(https://fonts.googleapis.com/css?family=Roboto:300);
       html,
