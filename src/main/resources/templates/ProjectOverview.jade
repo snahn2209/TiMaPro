@@ -27,12 +27,11 @@ html(lang='en')
                 li
                     form(method="POST", action="/TMProject/CheckOfTask?task="+task.id+"&user="+encodedUsername)
                         a(href='/TMProject/Task?id='+task.id+'&user='+encodedUsername) #{task.name} - deadline:#{task.deadline} - prio:#{task.priority} - points:#{task.maxPoints}
-                        label(for="done") - done:
+                        label(for="done")  done:
                         input(type='checkbox', id="done", name='done', checked=task.done)
                         input(type="submit" value="submit", class="submit")
             li
-                a(href='...') + new task
-
+                a(href='/TMProject/AddTask?id='+project.ID+'&user='+encodedUsername) + new task
     style.
       @import url(https://fonts.googleapis.com/css?family=Roboto:300);
       html,
