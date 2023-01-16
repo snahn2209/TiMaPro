@@ -4,7 +4,7 @@ html(lang='en')
         meta(charset='UTF-8')
         title TMProject
     body
-        a(href='/TMProject/Task?id='+task.id) ⬅︎ cancel
+        a(href='/TMProject/Project?id='+projectID+'&user='+encodedUsername) ⬅︎ cancel
         h1 Add Task
         form(method='POST', action="/TMProject/AddTask?projectID="+projectid)
             label(for="name") task name :

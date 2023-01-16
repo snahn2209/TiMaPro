@@ -42,15 +42,20 @@ public class TaskController {
         }, new JadeTemplateEngine());
 
         // addTask form
+        //http://localhost:4567/TMProject/AddTask?project=1&user=Pia
         get("/TMProject/AddTask", (req, res) -> {
+            // get ProjectID from url
+            int projectID = Integer.parseInt(req.queryParams("project"));
+
             // decode url
             URLDecoder.decode(req.url(), StandardCharsets.UTF_8.toString());
-
-            // get ProjectID from url ?
-            int projectid = Integer.parseInt(req.queryParams("id"));
+            String username = req.queryParams("user");
 
             Map<String, Object> model = new HashMap<>();
-            model.put("id", projectid);
+            model.put("projectID", projectID);
+            model.put("username", username);
+            model.put("encodedUsername", URLEncoder.encode(username, StandardCharsets.UTF_8.toString()));
+
 
             ModelAndView modelAndView = new ModelAndView(model, "AddTaskForm");
             return modelAndView;
