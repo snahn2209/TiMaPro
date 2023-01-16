@@ -116,7 +116,6 @@ public class TaskController {
             return null;
         });
 
-        //TODO: check if user is responsible for this task
         post("/TMProject/CheckOfTask", (req, res) -> {
             int taskID = Integer.parseInt(req.queryParams("task"));
 
@@ -131,31 +130,44 @@ public class TaskController {
             UserAccount currentUser = UserDataProvider.selectUser(con, username);
             int currentUserID = currentUser.getID();
 
-            // mark task as !done in db
-            Task updatedTask = TaskDataProvider.checkOffTask(con, taskID);
+            //check if user is responsible for this task
+            Task task = TaskDataProvider.selectTask(con,taskID);
 
-            if (updatedTask != null && updatedTask.isDone()) {
-                // earning points
-                // add points to projectuser table
-                ProjectDataProvider.earnProjectPoints(con, currentUserID, updatedTask.getProject(),
-                        updatedTask.getMaxPoints());
-                // add points to total points of user
-                UserDataProvider.earnPoints(con, currentUserID, updatedTask.getMaxPoints());
-            } else if (updatedTask != null && !updatedTask.isDone()) {
-                // loosing points
-                // removing points from projectuser table
-                ProjectDataProvider.earnProjectPoints(con, currentUserID, updatedTask.getProject(),
-                        -updatedTask.getMaxPoints());
-                // removing points from users total points
-                UserDataProvider.earnPoints(con, currentUserID, -updatedTask.getMaxPoints());
+            boolean userIsResponsible = true; //if no user is responsible -> everybody is responsible
+            if(task.getResponsiblePersonId() != 0){
+                userIsResponsible=false; //only one user is responsible
+                if(task.getResponsiblePersonId()==currentUserID){
+                    userIsResponsible = true;//current user is responsible
+                }
             }
+
+            Task updatedTask = TaskDataProvider.selectTask(con,taskID);
+            if(userIsResponsible){
+                // mark task as !done in db
+                updatedTask = TaskDataProvider.checkOffTask(con, taskID);
+
+                if (updatedTask != null && updatedTask.isDone()) {
+                    // earning points
+                    // add points to projectuser table
+                    ProjectDataProvider.earnProjectPoints(con, currentUserID, updatedTask.getProject(),
+                            updatedTask.getMaxPoints());
+                    // add points to total points of user
+                    UserDataProvider.earnPoints(con, currentUserID, updatedTask.getMaxPoints());
+                } else if (updatedTask != null && !updatedTask.isDone()) {
+                    // loosing points
+                    // removing points from projectuser table
+                    ProjectDataProvider.earnProjectPoints(con, currentUserID, updatedTask.getProject(),
+                            -updatedTask.getMaxPoints());
+                    // removing points from users total points
+                    UserDataProvider.earnPoints(con, currentUserID, -updatedTask.getMaxPoints());
+                }
+            }
+
             DBConnection.disconnect(con);
 
             // redirect to project overview
             if (updatedTask != null) {
                 res.redirect("/TMProject/Project?id=" + updatedTask.getProject() + "&user=" + encodedUsername);
-            } else {
-                res.redirect("/TMProject/Projects?username=" + encodedUsername);
             }
             return null;
         });
