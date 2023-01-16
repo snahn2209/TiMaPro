@@ -8,10 +8,10 @@ html(lang='en')
   body
     nav
       div
-        a(href='/TMProject/Projects?username=undefined') &#x2B05;&#xFE0E; cancel
+        a(href='/TMProject/Projects?username='+encodedUsername) &#x2B05;&#xFE0E; cancel
         p user: #{name}
     .formula
-      form(method='POST', action='/TMProject/AddProject?user=undefined')
+      form(method='POST', action='/TMProject/AddProject?user='+encodedUsername)
         h1 Add Project
         p.tutorial
           em
