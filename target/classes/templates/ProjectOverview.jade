@@ -8,13 +8,13 @@ html(lang='en')
       div
         a(href='/TMProject/Projects?username='+encodedUsername) ⬅︎ Dashboard
         h1 #{project.name}
-        p user: #{project.deadline}
+        p user: #{username}
     .table
       .innerTable
         .intro
           p
             em Here is your project with its index. You can find the tasks at the bottom.
-        p deadline:
+        p deadline: #{project.deadline}
         h4 Productivity Ranking
         ol
          for member in members
@@ -24,7 +24,7 @@ html(lang='en')
         .Tasks
         ul
             for task in tasks
-              li
+                li
                     form(method="POST", action="/TMProject/CheckOfTask?task="+task.id+"&user="+encodedUsername)
                         a(href='/TMProject/Task?id='+task.id+'&user='+encodedUsername) #{task.name} - deadline:#{task.deadline} - prio:#{task.priority} - points:#{task.maxPoints}
                         label(for="done") - done:
@@ -32,6 +32,7 @@ html(lang='en')
                         input(type="submit" value="submit", class="submit")
             li
                 a(href='...') + new task
+
     style.
       @import url(https://fonts.googleapis.com/css?family=Roboto:300);
       html,

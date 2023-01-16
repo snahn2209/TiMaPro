@@ -8,13 +8,13 @@ html(lang='en')
       div
         a(href='/TMProject/Projects?username='+encodedUsername) ⬅︎ Dashboard
         h1 #{project.name}
-        p user: #{project.deadline}
+        p user: #{username}
     .table
       .innerTable
         .intro
           p
             em Here is your project with its index. You can find the tasks at the bottom.
-        p deadline:
+        p deadline: #{project.deadline}
         h4 Productivity Ranking
         ol
          for member in members
