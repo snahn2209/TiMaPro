@@ -4,23 +4,123 @@ html(lang='en')
     meta(charset='UTF-8')
     title TMProject
   body
-    a(href='/TMProject/Projects?username='+encodedUsername) ⬅︎ Dashboard
-    h1 #{project.name}
-    p deadline: #{project.deadline}
-    h4 Productivity Ranking
-    ol
-        for member in members
-            li #{member.name} - #{member.totalPoints} points
+    nav
+      div
+        a(href='/TMProject/Projects?username='+encodedUsername) ⬅︎ Dashboard
+        h1 #{project.name}
+        p user: #{username}
+    .table
+      .innerTable
+        .intro
+          p
+            em Here is your project with its index. You can find the tasks at the bottom.
+        p deadline: #{project.deadline}
+        h4 Productivity Ranking
+        ol
+         for member in members
+          li #{member.name} - #{member.totalPoints} points
+        br
+        h3 Tasks
+        .Tasks
+        ul
+            for task in tasks
+                li
+                    form(method="POST", action="/TMProject/CheckOfTask?task="+task.id+"&user="+encodedUsername)
+                        a(href='/TMProject/Task?id='+task.id+'&user='+encodedUsername) #{task.name} - deadline:#{task.deadline} - prio:#{task.priority} - points:#{task.maxPoints}
+                        label(for="done") - done:
+                        input(type='checkbox', id="done", name='done', checked=task.done)
+                        input(type="submit" value="submit", class="submit")
+            li
+                a(href='...') + new task
 
-    br
-    h3 Tasks
-    ul
-        for task in tasks
-           li
-                form(method="POST", action="/TMProject/CheckOfTask?task="+task.id+"&user="+encodedUsername)
-                    a(href='/TMProject/Task?id='+task.id+'&user='+encodedUsername) #{task.name} - deadline:#{task.deadline} - prio:#{task.priority} - points:#{task.maxPoints}
-                    label(for="done") - done:
-                    input(type='checkbox', id="done", name='done', checked=task.done)
-                    input(type="submit" value="submit", class="submit")
-        li
-            a(href='...') + new task
+    style.
+      @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+      html,
+      body {
+      min-height: 100%;
+      }
+      body {
+      font-family: "Roboto", sans-serif;
+      color: white;
+      background: rgb(115, 194, 251);
+      background: linear-gradient(rgba(115, 194, 251, 1) 5%, rgba(178, 221, 233, 1) 100%);
+      }
+      nav {
+      display: flex;
+      background-color: rgb(105, 191, 252);
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      height: 50px;
+      width: 100%;
+      box-shadow: 1px 1px 10px rgb(100, 100, 100);
+      border-radius: 7px;
+      }
+      nav div {
+      display: flex;
+      width: 100%;
+      padding: 15px;
+      align-items: center;
+      justify-content: space-between;
+      }
+      nav div a {
+      text-decoration: none;
+      color: white;
+      }
+      nav div a:hover {
+      transition: 0.5s ease;
+      transform: scale(1.25);
+      text-shadow: 0 0 5px gray;
+      }
+      p {
+      font-weight: bold;
+      }
+      .table {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 7px;
+      min-height: 80vh;
+      text-shadow: 0 1.5px 5px gray;
+      }
+      .innerTable {
+      width: 50vh;
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      flex-flow: column;
+      text-align: center;
+      background-color: rgb(157, 211, 249);
+      box-shadow: 1px 1px 10px rgb(100, 100, 100);
+      }
+      .Tasks {
+      background-color: rgb(129, 199, 248);
+      border-radius: 7px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      }
+      .Tasks ul{
+      margin-top: -15px;
+      }
+      .Tasks li {
+      list-style: none;
+      margin: 7px;
+
+      }
+      .Tasks li:hover {
+      transition: 0.5s ease;
+      transform: scale(1.15);
+      text-shadow: 0 5px 5px gray;
+      border-radius: 5px;
+      }
+      .Tasks a {
+      text-decoration: none;
+      color: white;
+      }
+    
