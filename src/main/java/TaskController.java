@@ -40,6 +40,8 @@ public class TaskController {
             model.put("task", selectedTask);
             if(responsibleUser!=null){
                 model.put("responsiblePerson", responsibleUser.getName());
+            }else{
+                model.put("responsiblePerson", "-");
             }
 
             ModelAndView modelAndView = new ModelAndView(model, "TaskOverview");
