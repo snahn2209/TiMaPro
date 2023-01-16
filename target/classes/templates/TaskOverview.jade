@@ -1,17 +1,76 @@
 doctype html
 html(lang='en')
-    head
+  head
     meta(charset='UTF-8')
     title TMProject
-   body
-    a(href='/TMProject/Project?id='+task.project+'&user='+encodedUsername) ⬅︎ Project Overview
-    h1 #{task.name}
-    p Deadline: #{task.deadline}
-    p Time needed: #{task.timeEstimation} hours
-    p Priority: #{task.priority}/10
-    p Maximum Points: #{task.maxPoints}
-    p ID of Responsible Person: #{task.responsiblePersonId}
-    form(method="POST", action="/TMProject/CheckOfTask?task="+task.id+"&user="+encodedUsername)
-        label(for="done") done:
-        input(type='checkbox', id="done", name='done', checked=task.done)
-        input(type="submit" value="submit", class="submit")
+  body
+    nav
+      h1 #{task.name}
+    .table
+      .innerTable
+        .intro
+          p
+            em
+              | Here is your task. When you are done with the task, please check the box at the bottom.
+        p Deadline: #{task.deadline}
+        p Time needed: #{task.timeEstimation} hours
+        p Priority: #{task.priority}/10
+        p Maximum Points: #{task.maxPoints}
+        p ID of Responsible Person: #{task.responsiblePersonId}
+        .finish
+        form#done(method="POST", action="/TMProject/CheckOfTask?task="+task.id+"&user="+encodedUsername)
+          label(for="done") done:
+          input(type='checkbox', id="done", name='done', checked=task.done)
+          input(type="submit" value="submit", class="submit")
+    style.
+      @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+      html,
+      body {
+      min-height: 100%;
+      }
+      body {
+      font-family: "Roboto", sans-serif;
+      color: white;
+      background: rgb(115, 194, 251);
+      background: linear-gradient(rgba(115, 194, 251, 1) 5%, rgba(178, 221, 233, 1) 100%);
+      }
+      nav {
+      display: flex;
+      background-color: rgb(105, 191, 252);
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      height: 50px;
+      width: 100%;
+      box-shadow: 1px 1px 10px rgb(100, 100, 100);
+      border-radius: 7px;
+      }
+      p {
+      font-weight: bold;
+      }
+      .table {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 7px;
+      min-height: 80vh;
+      text-shadow: 0 1.5px 5px gray;
+      }
+      .innerTable {
+      width: 35vh;
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      flex-flow: column;
+      text-align: center;
+      background-color: rgb(157, 211, 249);
+      box-shadow: 1px 1px 10px rgb(100, 100, 100);
+      }
+      .finish {
+      display: flex;
+      flex-direction: row;
+      }
+   
