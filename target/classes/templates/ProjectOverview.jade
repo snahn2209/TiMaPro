@@ -17,6 +17,10 @@ html(lang='en')
     ul
         for task in tasks
            li
-            a(href='/TMProject/Task?id='+task.id) #{task.name} - deadline:#{task.deadline} - prio:#{task.priority} - points:#{task.maxPoints}
+                form(method="POST", action="/TMProject/CheckOfTask?task="+task.id+"&user="+encodedUsername)
+                    a(href='/TMProject/Task?id='+task.id+'&user='+encodedUsername) #{task.name} - deadline:#{task.deadline} - prio:#{task.priority} - points:#{task.maxPoints}
+                    label(for="done") - done:
+                    input(type='checkbox', id="done", name='done', checked=task.done)
+                    input(type="submit" value="submit", class="submit")
         li
             a(href='...') + new task

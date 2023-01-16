@@ -112,4 +112,14 @@ public class ProjectDataProvider {
         }
         return null;
     }
+
+    //TODO: write test
+    public static Boolean earnProjectPoints(Connection con, int userID, int projectID, int points){
+
+        if(con!=null){
+            Boolean success = DBConnection.update(con, "UPDATE TMproject.projectuser SET userpoints = userpoints+"+points+" WHERE (projectID = "+projectID+") and (userID = "+userID+");");
+            return success;
+        }
+        return false;
+    }
 }
