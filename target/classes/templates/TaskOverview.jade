@@ -18,8 +18,10 @@ html(lang='en')
         p Maximum Points: #{task.maxPoints}
         p ID of Responsible Person: #{task.responsiblePersonId}
         .finish
-          p Done:
-          input#done(type='checkbox', name='done', checked=false)
+        form#done(method="POST", action="/TMProject/CheckOfTask?task="+task.id+"&user="+encodedUsername)
+          label(for="done") done:
+          input(type='checkbox', id="done", name='done', checked=task.done)
+          input(type="submit" value="submit", class="submit")
     style.
       @import url(https://fonts.googleapis.com/css?family=Roboto:300);
       html,
@@ -71,3 +73,4 @@ html(lang='en')
       display: flex;
       flex-direction: row;
       }
+   
