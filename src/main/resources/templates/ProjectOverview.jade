@@ -22,12 +22,17 @@ html(lang='en')
         br
         h3 Tasks
         .Tasks
-          ul
-          for task in tasks
+        ul
+            for task in tasks
+                li
+                    form(method="POST", action="/TMProject/CheckOfTask?task="+task.id+"&user="+encodedUsername)
+                        a(href='/TMProject/Task?id='+task.id+'&user='+encodedUsername) #{task.name} - deadline:#{task.deadline} - prio:#{task.priority} - points:#{task.maxPoints}
+                        label(for="done") - done:
+                        input(type='checkbox', id="done", name='done', checked=task.done)
+                        input(type="submit" value="submit", class="submit")
             li
-              a(href='/TMProject/Task?id='+task.id) #{task.name} - deadline:#{task.deadline} - prio:#{task.priority} - points:#{task.maxPoints}
-            li
-              a(href='...') + new task
+                a(href='...') + new task
+
     style.
       @import url(https://fonts.googleapis.com/css?family=Roboto:300);
       html,
@@ -118,3 +123,4 @@ html(lang='en')
       text-decoration: none;
       color: white;
       }
+    
