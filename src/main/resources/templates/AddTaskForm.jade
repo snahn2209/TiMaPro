@@ -1,0 +1,26 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title TMProject
+    body
+        a(href='/TMProject/Task?id='+task.id) ⬅︎ cancel
+        h1 Add Task
+        form(method='POST', action="/TMProject/AddTask?projectID="+projectid)
+            label(for="name") task name :
+            input(type='text', id="name", name="name", placeholder="new task", required)
+            br
+            label(for="deadline") deadline :
+            input(type='date', id="deadline", name="deadline", required)
+            br
+            label(for="time") time you need :
+            input(type='double', id="time", name="time",placeholder="time estimation", required)
+            br
+            label(for="time") priority :
+            input(type='int', id="prio", name="prio",placeholder="priority", required)
+            br
+            label(for="responsiblePerson") ID of Responsible Person:
+            input(type='int', id="responsiblePerson", name="responsiblePerson",placeholder="responsiblePerson")
+
+            p
+            input(type="submit" value="submit", class="submit")

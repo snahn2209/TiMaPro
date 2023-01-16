@@ -96,7 +96,7 @@ public class TaskDataProvider {
     /**
      * selects all tasks which are part of specific project
      * @param con Connection to DB
-     * @param projectID uinique ID of project
+     * @param projectID unique ID of project
      * @return List of Tasks
      */
     public static List<Task> selectAllTasksOfProject(Connection con, int projectID) {

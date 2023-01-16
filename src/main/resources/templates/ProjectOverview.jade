@@ -19,4 +19,4 @@ html(lang='en')
            li
             a(href='/TMProject/Task?id='+task.id) #{task.name} - deadline:#{task.deadline} - prio:#{task.priority} - points:#{task.maxPoints}
         li
-            a(href='...') + new task
+            a(href='/TMProject/AddTask?projectID='+projectid) + new task
