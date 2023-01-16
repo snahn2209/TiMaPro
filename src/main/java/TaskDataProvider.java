@@ -19,7 +19,7 @@ public class TaskDataProvider {
      *                                                  already exists in DB
      */
     public static Task insertTask(Connection con, String name, Date deadline, double timeEstimation, int priority,
-            int userId, int projectId) throws SQLIntegrityConstraintViolationException {
+            Integer userId, int projectId) throws SQLIntegrityConstraintViolationException {
         boolean done = false;
         int maxPoints = Task.calculateMaxPoints(timeEstimation);
 

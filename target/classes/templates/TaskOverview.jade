@@ -17,7 +17,7 @@ html(lang='en')
         p Time needed: #{task.timeEstimation} hours
         p Priority: #{task.priority}/10
         p Maximum Points: #{task.maxPoints}
-        p ID of Responsible Person: #{task.responsiblePersonId}
+        p Responsible Person: #{responsiblePerson}
         .finish
         form#done(method="POST", action="/TMProject/CheckOfTask?task="+task.id+"&user="+encodedUsername)
           label(for="check") done:

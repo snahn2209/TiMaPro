@@ -14,7 +14,8 @@ import static spark.Spark.*;
 
 public class TaskController {
     public TaskController() {
-
+        
+        //Task Overview
         // http://localhost:4567/TMProject/Task?id=1&user=Pia
         get("/TMProject/Task", (req, res) -> {
             URLDecoder.decode(req.url(), StandardCharsets.UTF_8.toString());
@@ -32,10 +33,14 @@ public class TaskController {
 
             Connection con = DBConnection.getConnection();
             Task selectedTask = TaskDataProvider.selectTask(con, taskId);
-
+            int responsiblePersonID = selectedTask.getResponsiblePersonId();
+            UserAccount responsibleUser = UserDataProvider.selectUserByID(con, responsiblePersonID);
             DBConnection.disconnect(con);
 
             model.put("task", selectedTask);
+            if(responsibleUser!=null){
+                model.put("responsiblePerson", responsibleUser.getName());
+            }
 
             ModelAndView modelAndView = new ModelAndView(model, "TaskOverview");
             return modelAndView;
@@ -78,22 +83,39 @@ public class TaskController {
             String responsibleUser = req.queryParams("responsiblePerson");
 
             // insertTask
-            /*Connection con = DBConnection.getConnection();
-            Task newTask = TaskDataProvider.insertTask(con, taskName, deadline, timeEstimation, prio, responsibleUserID,
-                    projectid);
+            Connection con = DBConnection.getConnection();
+            // check if responsible person is part of project
+            boolean responsiblePersonIsPartOfProject=false;
+            if(!responsibleUser.equals("")){
+                UserAccount user = UserDataProvider.selectUser(con, responsibleUser);
+                if(user!=null){
+                    List<UserAccount> team = UserDataProvider.selectAllUsersOfProject(con, projectID);
+                    for (UserAccount member : team) {
+                        if(member.getID() == user.getID()){
+                            responsiblePersonIsPartOfProject=true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if(responsiblePersonIsPartOfProject){
+                //resposible user assigned
+                UserAccount user = UserDataProvider.selectUser(con, responsibleUser);
+                Task newTask = TaskDataProvider.insertTask(con, taskName, deadline, timeEstimation, prio, user.getID(),projectID);
+            }else{
+                //no resposible uer assigned
+                Task newTask = TaskDataProvider.insertTask(con, taskName, deadline, timeEstimation, prio,null,projectID);
+            }
 
             DBConnection.disconnect(con);
 
-            res.redirect("/TMProject/Project?id=" + projectid + "&user=" + encodedUsername);
-             */
-
+            res.redirect("/TMProject/Project?id="+projectID+"&user="+encodedUsername);
             return null;
-
         });
 
-        // TMProject/CheckOfTask?task="+task.id+"&user="+encodedUsername
+        //TODO: check if user is responsible for this task
         post("/TMProject/CheckOfTask", (req, res) -> {
-
             int taskID = Integer.parseInt(req.queryParams("task"));
 
             // decode url
